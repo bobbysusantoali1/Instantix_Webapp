@@ -33,13 +33,13 @@ class user extends Model implements Authenticatable
 
     protected $fillable = [
         'role',
-        'fullName',
+        'full_name',
         'email',
         'password',
         'dob',
         'gender',
         'address',
-        'phoneNumber'
+        'phone_number'
     ];
 
     protected $hidden = [
