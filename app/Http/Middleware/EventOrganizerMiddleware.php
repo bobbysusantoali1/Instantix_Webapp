@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventOrganizerMiddleware
 {
@@ -16,8 +17,8 @@ class EventOrganizerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::check() || Auth::user()->role != 'EventOrganizer'){
-            return redirect('/Login');
+        if(!Auth::check() || Auth::user()->role != 'eventOrganizer'){
+            return redirect('/HomePage');
         }
         return $next($request);
     }
