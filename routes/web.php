@@ -1,13 +1,17 @@
 <?php
 
-use App\Http\Controllers\BrowsePage;
-use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
-use App\Http\Controllers\RegisterPage;
+use App\Http\Controllers\BrowsePage;
+use App\Http\Controllers\ContactPage;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterPage;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\AddNewEventPage;
+use App\Http\Controllers\EventDetailPage;
+use App\Http\Controllers\ManageEventPage;
+use App\Http\Controllers\EventBookingPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,20 +37,24 @@ Route::get('/Browse', [
     BrowsePage::class, 'view'
 ]);
 
+Route::get('/Contact', [
+    ContactPage::class, 'view'
+]);
+
 Route::get('/EventDetail', [
     EventDetailPage::class, 'view'
 ]);
 
-Route::get('/ViewAboutUs', function () {
-    return view('ViewAboutUs');
-});
 
 // for guest
 Route::middleware('guest')->group(function(){
     Route::get('/Login', [LoginPage::class, 'view'])->name('login');
+    Route::post('/Login', [LoginPage::class, 'authenticate']);
     Route::get('/Register', [RegisterPage::class, 'view']);
     Route::Post('/Register', [RegisterPage::class, 'insert']);
 });
+
+Route::get('/Logout', [LoginPage::class, 'Logout']);
 
 // get url image without storage:link
 Route::get('/storage/app/public/images/{nama}', function($nama){

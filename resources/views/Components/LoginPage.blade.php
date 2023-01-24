@@ -4,35 +4,37 @@
 @endsection
 @section('title', $title)
 @section('content')
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="center">
-      <h1>Login</h1>
-      <form method="post">
+<div class="center">
+    <h1>Login</h1>
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+    <form action="/Login" method="post">
+        @csrf
         <div class="txt_field">
-          <input type="text" required>
-          <span></span>
-          <label>Username</label>
+            <input type="text" name="email" required>
+            <span></span>
+            <label>Email Address</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
-          <span></span>
-          <label>Password</label>
+            <input type="password" name="password" required>
+            <span></span>
+            <label>Password</label>
         </div>
-        <div class="pass">Forgot Password?</div>
-        <input type="submit" value="Login">
+        <div class="mb-3">
+            <a href="/ForgotPassword" class="text-decoration-none text-black">Forgot Password?</a>
+        </div>
+        @if (session('Login_Error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('Login_Error') }}
+            </div>
+        @endif
+        <button type="submit" class="btn btn-danger w-100">Login</button>
         <div class="signup_link">
-          Not a member? <a href="#">Register Now</a>
+            Not a member? <a href="/Register">Register Now</a>
         </div>
-      </form>
-    </div>
-
-  </body>
-</html>
-
+    </form>
+</div>
 @endsection

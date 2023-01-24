@@ -3,9 +3,6 @@
 @section('content')
 <form class="d-flex justify-content-center align-items-center" method="POST" action="/Register">
     @csrf
-    @if ($errors->any())
-        {{$errors}}
-    @endif
     <div class="card p-5 ps-5 w-75">
         <h1>Register</h1>
         <div class="input-group">
@@ -59,8 +56,11 @@
                     <input type="number" class="form-control" name="phoneNumber" id="phoneNumber" required>
                 </div>
             </div>
-            <div class="col-6">
-            </div>
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{$errors->first()}}
+                </div>
+            @endif
         </div>
         <div class="d-flex justify-content-end mt-2">
             <button type="submit" class="btn btn-danger">Register</button>

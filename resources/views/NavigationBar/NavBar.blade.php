@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center text-dark fw-bold fs-5">
                     <li class="nav-item">
-                        <a class="nav-link @yield('active')" href="/Browse" >Browse</a>
+                        <a class="nav-link @yield('active_browse')" href="/Browse" >Browse</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href=" ViewMedia ">Media</a>
@@ -30,7 +30,7 @@
                         <a class="nav-link" href=" ViewAboutUs ">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=" ViewContact ">Contact</a>
+                        <a class="nav-link @yield('active_contact')" href="/Contact">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href=" ViewPartner ">Partner</a>
