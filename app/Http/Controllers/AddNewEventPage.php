@@ -19,9 +19,10 @@ class AddNewEventPage extends Controller
     public function insert(Request $request){
         $validate = $request->validate([
             'event_name' => ['required','min:5','max:30'],
+            'event_desc' => ['required', 'min:5'],
             'event_image' => ['required','image'],
             'event_artist' => ['required'],
-            'event_address' => ['required','min:5'],
+            'event_location' => ['required','min:5'],
             'event_date' => ['required'],
             'event_start_time' => ['required'],
             'event_end_time' => ['required']

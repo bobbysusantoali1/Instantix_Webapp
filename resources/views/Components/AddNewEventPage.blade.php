@@ -32,6 +32,12 @@
             </div>
         </div>
         <div class="row mb-3">
+            <label for="event_desc" class="col-sm-4">Deskripsi Event</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="event_desc" id="event_desc" value="{{ old('event_desc') }}">
+            </div>
+        </div>
+        <div class="row mb-3">
             <label for="event_date" class="col-sm-4">Tanggal</label>
             <div class="col-sm-8">
                 <input type="date" class="form-control" name="event_date" id="event_date" value="{{ old('event_date') }}">
