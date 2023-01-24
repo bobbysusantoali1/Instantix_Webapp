@@ -63,10 +63,10 @@
             <div class="row mb-3">
                 <label for="EventTicketSOld" class="col-sm-4">Ticket Sold</label>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control" name="EventRegularTicketSold" id="EventRegularTicketSold">
+                    <input type="number" class="form-control" name="EventRegularTicketSold" id="EventRegularTicketSold" disabled>
                 </div>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control" name="EventVIPTicketSold" id="EventVIPTicketSold">
+                    <input type="number" class="form-control" name="EventVIPTicketSold" id="EventVIPTicketSold" disabled>
                 </div>
             </div>
             <div class="row mb-3">

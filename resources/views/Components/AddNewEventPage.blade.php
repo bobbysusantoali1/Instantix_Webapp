@@ -54,19 +54,19 @@
             <div class="row mb-3">
                 <label for="EventTicket" class="col-sm-4">Ticket Stock</label>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control" name="EventRegularTicket" id="EventRegularTicket">
+                    <input type="number" placeholder="1" min="1" class="form-control" name="EventRegularTicket" id="EventRegularTicket">
                 </div>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control" name="EventVIPTicket" id="EventVIPTicket">
+                    <input type="number" placeholder="1" min="1" class="form-control" name="EventVIPTicket" id="EventVIPTicket">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="EventPrice" class="col-sm-4">Type</label>
+                <label for="EventPrice" class="col-sm-4">Price</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" name="EventRegularPrice" id="EventRegularPrice">
+                    <input type="number" min="10000" class="form-control" name="EventRegularPrice" id="EventRegularPrice" placeholder="10000">
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" name="EventVIPPrice" id="EventVIPPrice">
+                    <input type="number" min="20000" class="form-control" name="EventVIPPrice" id="EventVIPPrice" placeholder="20000">
                 </div>
             </div>
             <div class="mb-4 d-flex justify-content-center">
