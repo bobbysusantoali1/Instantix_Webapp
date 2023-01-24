@@ -8,7 +8,7 @@ class EventBookingPage extends Controller
 {
     public function view(){
         return view('Components.EventBookingPage', [
-            'title' => 'Event Detail'
+            'title' => 'Event Booking'
         ]);
     }
 }
