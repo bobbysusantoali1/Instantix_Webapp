@@ -16,7 +16,7 @@
               </div>
             </div>
             <div class="col-md-4" style="width: auto;margin-top: auto; margin-bottom: auto">
-              <img src="{{ asset('event.png') }}" style="width: 730px" class="img-fluid rounded-start" alt="...">
+              <img src="{{ asset('images/event.png') }}" style="width: 730px" class="img-fluid rounded-start" alt="...">
             </div>
         </div>
     </div>
