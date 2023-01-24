@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrowsePage;
 use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
+use App\Http\Controllers\RegisterPage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
@@ -34,6 +35,8 @@ Route::get('/Browse', [
 // for guest
 Route::middleware('guest')->group(function(){
     Route::get('/Login', [LoginPage::class, 'view'])->name('login');
+    Route::get('/Register', [RegisterPage::class, 'view']);
+    Route::Post('/Register', [RegisterPage::class, 'insert']);
 });
 
 // get url image without storage:link
