@@ -9,7 +9,7 @@ class BrowsePage extends Controller
     public function view(){
         return view('Components.BrowsePage', [
             'title' => 'Browse',
-            'active' => 'Browse'
+            'active' => 'Browse',
         ]);
     }
 }

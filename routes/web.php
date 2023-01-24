@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrowsePage;
+use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,10 @@ Route::get('/HomePage', [
 
 Route::get('/Browse', [
     BrowsePage::class, 'view'
+]);
+
+Route::get('/EventDetail', [
+    EventDetailPage::class, 'view'
 ]);
 
 // for guest

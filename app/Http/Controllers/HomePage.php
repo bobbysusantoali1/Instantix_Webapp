@@ -8,7 +8,7 @@ class HomePage extends Controller
 {
     public function view(){
         return view('Components.Home',[
-            'title' => 'Home Page InstanTix'
+            'title' => 'Home Page InstanTix',
         ]);
     }
 }
