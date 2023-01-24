@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrowsePage;
 use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,10 @@ Route::get('/', function () {
 
 Route::get('/HomePage', [
     HomePage::class, 'view'
+]);
+
+Route::get('/Browse', [
+    BrowsePage::class, 'view'
 ]);
 
 // for guest
