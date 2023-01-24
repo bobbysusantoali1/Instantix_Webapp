@@ -24,7 +24,7 @@
             <label>Password</label>
         </div>
         <div class="mb-3">
-            <a href="/Register" class="text-decoration-none text-black">Forgot Password?</a>
+            <a href="/ForgotPassword" class="text-decoration-none text-black">Forgot Password?</a>
         </div>
         @if (session('Login_Error'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
