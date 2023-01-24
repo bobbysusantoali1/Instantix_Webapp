@@ -25,7 +25,7 @@
                         <h3>Type</h3>
                     </div>
                     <div class="w-50 text-center">
-                        <h3>{{ $data->type }}</h3>
+                        <h3>{{ $ticket['category_name'] }}</h3>
                     </div>
                 </div>
                 <div class="d-flex">
@@ -33,21 +33,21 @@
                         <h3>Price</h3>
                     </div>
                     <div class="w-50 text-center">
-                        <h3>{{ $data->price }}</h3>
+                        <h3>{{ $ticket['price'] }}</h3>
                     </div>
                 </div>
                 <div class="d-flex">
                     <div class="w-50">
-                        <h3>{{ $data->quantity }}</h3>
+                        <h3>Quantity</h3>
                     </div>
                     <div class="w-50 text-center">
-                        <h3>1</h3>
+                        <h3>{{ $ticket['quantity'] }}</h3>
                     </div>
                 </div>
             </div>
             <div class="text-center">
                 <h1>Total Price</h1>
-                <h2>{{ $data->quantity*$data->price }}</h2>
+                <h2>{{ $ticket['quantity']*$ticket['price'] }}</h2>
             </div>
             <form class="d-flex justify-content-between" action="/Purchase" method="POST">
                 <a href="/HomePage" type="submit" class="btn btn-danger w-50 m-3 fs-3">Cancel</a>

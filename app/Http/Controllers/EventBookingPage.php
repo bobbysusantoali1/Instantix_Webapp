@@ -9,9 +9,8 @@ use App\Models\ticket;
 class EventBookingPage extends Controller
 {
     public function view(Request $request, $id){
-        // $data = event::where('id', $id)->first();
+        $data = event::where('id', $id)->first();
         $tickets = ticket::where('event_id', $id)->get();
-        dd($tickets);
         $ticket = [];
         $ticket['category_name'] = $request->input('role');
         $ticket['quantity'] = $request->quant;
