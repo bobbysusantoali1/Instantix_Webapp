@@ -66,6 +66,22 @@ Route::middleware('guest')->group(function(){
 
 // for auth user
 Route::middleware('auth')->group(function(){
+    // for customer
+    Route::middleware('customer')->group(function(){
+        Route::post('/EventBooking', [
+            EventBookingPage::class, 'view'
+        ]);
+    });
+
+    // for EO
+    Route::middleware('eventOrganizer')->group(function(){
+        Route::get('/AddNewEvent', [
+            AddNewEventPage::class, 'view'
+        ]);
+        Route::get('/ManageEvent', [
+            ManageEventPage::class, 'view'
+        ]);
+    });
 
     Route::post('/Logout', [LoginPage::class, 'Logout']);
 });

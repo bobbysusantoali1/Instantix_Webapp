@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card mb-3">
             <img class="card-img-top" src="{{ asset('event.png') }}" alt="Card image cap">
-            <form action="#" method="post">
+            <form action="/EventBooking" method="post">
                 @csrf
                 <div class="card-body d-flex">
                     <div class="left" style="width: calc(100% / 3) !important">
@@ -46,10 +46,7 @@
                             <h5>Total Price: 100.000</h5>
                         </div>
                         <div class="buttons d-flex mt-4" style="justify-content: center">
-                            <button type="submit" style="width: 150px" class="btn btn-danger"
-                            @if (!Auth::check() || Auth::user()->role != 'customer')
-                                disabled
-                            @endif>Book Now</button>
+                            <button type="submit" style="width: 150px" class="btn btn-danger">Book Now</button>
                         </div>
                     </div>
                 </div>
