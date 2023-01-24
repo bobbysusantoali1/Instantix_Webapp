@@ -20,9 +20,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center text-dark fw-bold fs-5">
-                    <li class="nav-item">
-                        <a class="nav-link @yield('active_browse')" href="/Browse" >Browse</a>
-                    </li>
+                    @if (!Auth::check() || auth()->user()->role != 'eventOrganizer')
+                        <li class="nav-item">
+                            <a class="nav-link @yield('active_browse')" href="/Browse" >Browse</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href=" ViewMedia ">Media</a>
                     </li>
@@ -35,9 +37,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href=" ViewPartner ">Partner</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-danger" href="/Login">Login</a>
-                    </li>
+                    @if (Auth::check())
+                        <form action="/Logout" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger"><span>{{ auth()->user()->full_name}}</span></button>
+                        </form>
+                    @else
+                        <li class="nav-item">
+                            <a class="btn btn-danger" href="/Login">Login</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

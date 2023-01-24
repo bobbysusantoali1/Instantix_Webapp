@@ -64,7 +64,11 @@ Route::middleware('guest')->group(function(){
     Route::Post('/Register', [RegisterPage::class, 'insert']);
 });
 
-Route::get('/Logout', [LoginPage::class, 'Logout']);
+// for auth user
+Route::middleware('auth')->group(function(){
+
+    Route::post('/Logout', [LoginPage::class, 'Logout']);
+});
 
 // get url image without storage:link
 Route::get('/storage/app/public/images/{nama}', function($nama){
