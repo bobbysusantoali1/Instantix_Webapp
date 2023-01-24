@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomePage;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// universal
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/HomePage');
+});
+
+Route::get('/HomePage', [
+    HomePage::class, 'view'
+]);
+
+// get url image without storage:link
+Route::get('/storage/app/public/images/{nama}', function($nama){
+    $content = Storage::get('/public/images/'.$nama);
+    $mimes = Storage::mimeType('/public/images/'.$nama);
+    $response = Response::make($content, 200);
+    $response->header('Content-Type', $mimes);
+    return $response;
 });
