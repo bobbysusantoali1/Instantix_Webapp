@@ -50,7 +50,7 @@
                 <h2>Rp100.000,-</h2>
             </div>
             <form class="d-flex justify-content-between" action="#" method="POST">
-                <a href="/Browse" type="submit" class="btn btn-danger w-50 m-3 fs-3">Cancel</a>
+                <a href="/HomePage" type="submit" class="btn btn-danger w-50 m-3 fs-3">Cancel</a>
                 <button type="submit" class="btn bg-darkblue text-white w-50 m-3 fs-3">Purchase</button>
             </form>
         </div>

@@ -11,8 +11,10 @@ use Illuminate\Support\Facades\Auth;
 class AddNewEventPage extends Controller
 {
     public function view(){
+        $data = event::all();
         return view('Components.AddNewEventPage', [
             'title' => 'AddNewEvent',
+            'data' => $data
         ]);
     }
 
@@ -49,7 +51,7 @@ class AddNewEventPage extends Controller
         $idx = event::latest()->first();
 
         $init = new ticket();
-        $init['event_id'] = $idx;
+        $init['event_id'] = $idx->id;
         $init['category_name'] = 'Regular';
         $init['category_desc'] = 'Hello iam under water';
         $init['category_init_stock'] = $validateticketregular['EventRegularTicket'];
@@ -58,7 +60,7 @@ class AddNewEventPage extends Controller
         $init->save();
 
         $init1 = new ticket();
-        $init1['event_id'] = $idx;
+        $init1['event_id'] = $idx->id;
         $init1['category_name'] = 'VIP';
         $init1['category_desc'] = 'Hello iam under water exstra';
         $init1['category_init_stock'] = $validateticketvip['EventVIPTicket'];
