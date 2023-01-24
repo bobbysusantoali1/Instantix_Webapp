@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\event;
 use App\Models\ticket;
+use App\Models\myBook;
 
 class EventBookingPage extends Controller
 {
@@ -17,6 +18,7 @@ class EventBookingPage extends Controller
         foreach ($tickets as $type) {
             if ($type->category_name == $request->input('role')) {
                 $ticket['price'] = $type->price;
+                $ticket['id'] = $type->id;
                 break;
             }
         }
@@ -27,9 +29,21 @@ class EventBookingPage extends Controller
         ]);
     }
 
-    // public function purchase(Request $request, $id){
-    //     return view('Components.EventBookingPage', [
-    //         'title' => 'Event Booking']
-    //     ]);
-    // }
+    public function purchase(Request $request){
+        // $data = new myBook();
+        // $data['user_id'] = $request->evet_id;
+        // $data['ticket_id'] = $request->ticket_id;
+        // $data['quantity'] = $request->quanity;
+        // $data->save();
+
+        myBook::create([
+            'user_id' => $request->evet_id,
+            'ticket_id' => $request->ticket_id,
+            'quantity' => $request->quanity
+        ]);
+
+        return view('Components.MyBooking', [
+            'title' => 'My Booking'
+        ]);
+    }
 }
