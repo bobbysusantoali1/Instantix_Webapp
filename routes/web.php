@@ -14,6 +14,7 @@ use App\Http\Controllers\ManageEventPage;
 use App\Http\Controllers\EventBookingPage;
 use App\Http\Controllers\AboutUsPage;
 use App\Http\Controllers\EOPage;
+use App\Http\Controllers\EODashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,13 @@ Route::middleware('auth')->group(function(){
 
     // for EO
     Route::middleware('eventOrganizer')->group(function(){
+        Route::prefix('dashboard')->group(function(){
+            Route::get('myEvents', [EODashboardController::class, 'myEvents']);
+
+            Route::get('', function (){
+                return redirect('/dashboard/myEvents');
+            });
+        });
         Route::get('/AddNewEvent', [AddNewEventPage::class, 'view'])->name('view-add-event');
         Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert'])->name('insert-event');
         Route::get('/ManageEvent', [ManageEventPage::class, 'view'])->name('view-manage-event');
