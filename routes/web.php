@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AddNewEventPage;
 use App\Http\Controllers\BrowsePage;
 use App\Http\Controllers\ContactPage;
 use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
+use App\Http\Controllers\ManageEventPage;
 use App\Http\Controllers\RegisterPage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -40,6 +42,13 @@ Route::get('/Contact', [
 
 Route::get('/EventDetail', [
     EventDetailPage::class, 'view'
+]);
+
+Route::get('/AddNewEvent', [
+    AddNewEventPage::class, 'view'
+]);
+Route::get('/ManageEvent', [
+    ManageEventPage::class, 'view'
 ]);
 
 // for guest

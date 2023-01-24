@@ -61,6 +61,15 @@
                 </div>
             </div>
             <div class="row mb-3">
+                <label for="EventTicketSOld" class="col-sm-4">Ticket Sold</label>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" name="EventRegularTicketSold" id="EventRegularTicketSold">
+                </div>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" name="EventVIPTicketSold" id="EventVIPTicketSold">
+                </div>
+            </div>
+            <div class="row mb-3">
                 <label for="EventPrice" class="col-sm-4">Type</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" name="EventRegularPrice" id="EventRegularPrice">
@@ -69,8 +78,13 @@
                     <input type="text" class="form-control" name="EventVIPPrice" id="EventVIPPrice">
                 </div>
             </div>
-            <div class="mb-4 d-flex justify-content-center">
-                <button type="submit" class="btn bg-blue">Create</button>
+            <div class="d-flex justify-content-center">
+                <div class="mb-4 col-sm-2">
+                    <button type="submit" class="btn btn-danger">Cancel</button>
+                </div>
+                <div class="mb-4 d-flex">
+                    <button type="submit" class="btn bg-blue">Update</button>
+                </div>
             </div>
     </form>
 </div>
