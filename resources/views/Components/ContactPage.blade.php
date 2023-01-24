@@ -1,5 +1,6 @@
 @extends('MainBody')
 @section('title', $title)
+@section('active_contact', ($active == 'Contact') ? 'active' : '')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@
                     <div class="card-title">
                         <h2 class="text-center py-2"> Contact Us </h2>
                         <hr>
-                        <?php 
+                        <?php
                             $Msg = "";
                             if(isset($_GET['error']))
                             {
@@ -31,7 +32,7 @@
                                 $Msg = " Your Message Has Been Sent ";
                                 echo '<div class="alert alert-success">'.$Msg.'</div>';
                             }
-                        
+
                         ?>
                     </div>
                     <div class="card-body">

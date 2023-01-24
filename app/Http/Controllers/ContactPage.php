@@ -8,7 +8,8 @@ class ContactPage extends Controller
 {
     public function view(){
         return view('Components.ContactPage', [
-            'title' => 'Contact'
+            'title' => 'Contact',
+            'active' => 'Contact'
         ]);
     }
 }

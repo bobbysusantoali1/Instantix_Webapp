@@ -1,6 +1,6 @@
 @extends('MainBody')
 @section('title', $title)
-@section('active', ($active == 'Browse') ? 'active' : '')
+@section('active_browse', ($active == 'Browse') ? 'active' : '')
 @section('content')
 <section class="search-sec">
     <div class="container">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrowsePage;
+use App\Http\Controllers\ContactPage;
 use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
@@ -31,6 +32,10 @@ Route::get('/HomePage', [
 
 Route::get('/Browse', [
     BrowsePage::class, 'view'
+]);
+
+Route::get('/Contact', [
+    ContactPage::class, 'view'
 ]);
 
 Route::get('/EventDetail', [
