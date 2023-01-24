@@ -15,6 +15,7 @@ class CreateTicketCategoriesTable extends Migration
     {
         Schema::create('ticket', function (Blueprint $table) {
             $table->string('id')->primary();
+            $table->string('event_id');
             $table->foreign('event_id')->references('id')->on('events');
             $table->string('category_name');
             $table->string('category_desc');

@@ -24,11 +24,11 @@ class CreateMyBooksTable extends Migration
             $table->string('event_artist');
             $table->string('event_image');
             $table->string('ticket_category');
-            $table->string('price');
-            $table->string('quantity');
+            $table->integer('price');
+            $table->integer('quantity');
             $table->date('event_date');
-            $table->date('event_end_time');
-            $table->time('event_booking_time');
+            $table->time('event_end_time');
+            $table->datetime('event_booking_time');
             $table->string('event_booking_code');
             $table->timestamps();
         });
