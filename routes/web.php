@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function(){
     Route::middleware('customer')->group(function(){
         Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view']);
         Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view']);
+        Route::post('/EventBooking', [EventBookingPage::class, 'purchase']);
     });
 
     // for EO
