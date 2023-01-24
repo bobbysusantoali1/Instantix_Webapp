@@ -13,15 +13,17 @@ class myBookSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tickets')->insert([
+        DB::table('myBooks')->insert([
             [
-                "event_id" => 1,
-                "category_name" => "Regular",
-                "category_desc" => "This ticket will give you an access to the event",
-                "category_init_stock" => 100,
-                "category_curr_stock" => 28,
-                "price" => 100000
+                "user_id" => 1,
+                "ticket_id" => 1,
+                "quantity" => 1
             ],
+            [
+                "user_id" => 2,
+                "ticket_id" => 2,
+                "quantity" => 2
+            ]
         ]);
     }
 }
