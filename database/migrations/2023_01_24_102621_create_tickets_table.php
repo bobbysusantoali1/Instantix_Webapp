@@ -14,13 +14,11 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('user_id');
-            $table->string('category_id');
+            $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('category_id');
             $table->string('ticket_name');
             $table->string('ticket_desc');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('ticketcategories');
             $table->timestamps();
         });
     }
