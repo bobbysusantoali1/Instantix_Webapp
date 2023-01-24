@@ -13,21 +13,21 @@
   <body>
     <div class="center">
       <h1>Login</h1>
-      <form method="post">
+      <form action="#" method="post">
         <div class="txt_field">
-          <input type="text" required>
+          <input type="text" name="email">
           <span></span>
-          <label>Username</label>
+          <label>Email Address</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" name="password">
           <span></span>
           <label>Password</label>
         </div>
         <div class="pass">Forgot Password?</div>
         <input type="submit" value="Login">
         <div class="signup_link">
-          Not a member? <a href="#">Register Now</a>
+          Not a member? <a href="/Register">Register Now</a>
         </div>
       </form>
     </div>

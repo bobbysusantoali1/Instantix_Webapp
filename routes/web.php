@@ -40,6 +40,7 @@ Route::get('/EventDetail', [
 // for guest
 Route::middleware('guest')->group(function(){
     Route::get('/Login', [LoginPage::class, 'view'])->name('login');
+    Route::post('/Login', [LoginPage::class, 'autheticate']);
     Route::get('/Register', [RegisterPage::class, 'view']);
     Route::Post('/Register', [RegisterPage::class, 'insert']);
 });
