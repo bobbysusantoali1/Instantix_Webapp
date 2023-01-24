@@ -17,7 +17,7 @@ class LocationMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $datas = event::select('event_address')->distinct()->get();
+        $datas = event::select('event_location')->distinct()->get();
         $request->merge(["datas" => $datas]);
         return $next($request);
     }
