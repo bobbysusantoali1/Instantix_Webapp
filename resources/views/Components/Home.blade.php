@@ -16,7 +16,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <img src="{{ URL::asset('images/'.$first_event->event_image) }}" class="img-fluid rounded-start" alt="...">
+              <img src="{{ URL::asset('images/'.$first_event->event_image) }}" class="img-fluid rounded-start" alt="{{ $first_event->event_image }}">
             </div>
         </div>
     </div>

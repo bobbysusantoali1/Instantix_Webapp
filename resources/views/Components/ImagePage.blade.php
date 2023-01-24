@@ -2,7 +2,7 @@
 <section class="item p-5 d-flex" style="margin-bottom: 100px">
     @foreach ($events as $event)
     <div class="card m-2" style="width: 18rem;">
-        <img class="card-img-top" src="{{ URL::asset('images/'.$event->event_image) }}" alt="">
+        <img class="card-img-top" src="{{ URL::asset('images/'.$event->event_image) }}" alt="{{ $event->event_image }}">
         <div class="card-body">
           <h5 class="card-title">{{ $event->event_name }}</h5>
           <p class="card-text">Artist: {{ $event->event_artist }}</p>
