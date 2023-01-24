@@ -9,29 +9,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="width: 50%">
                             <input type="text" class="form-control search-slt" placeholder="Search Event ...">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                             <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                <option>Location</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                <option>Event Type</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
-                                <option>Example one</option>
+                                @foreach ($datas as $item)
+                                    <option value="{{ $item['event_address'] }}">{{ $item['event_address'] }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
