@@ -3,15 +3,15 @@
 @section('content')
     <div class="container justify-content-center">
         <div class="card mb-3">
-            <img class="card-img-top" src="{{ asset('event.png') }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ URL::asset('images/'.$event->event_image) }}" alt="Card image cap">
             <div class="card-body d-flex">
                 <div class="left" style="width: calc(100% / 3) !important">
-                    <h5 class="card-title">{{ $data->event_name }}</h5>
-                    <p class="card-text">artist: {{ $data->event_artist }}</p>
-                    <p class="card-text">penyelenggara: {{ $data->user->full_name }}</p>
-                    <p class="card-text">lokasi: {{ $data->event_location }}</p>
-                    <p class="card-text">tanggal: {{ $data->event_date }}</p>
-                    <p class="card-text">jam: {{ $data->event_start_time }} - {{ $data->event_end_time }}</p>
+                    <h5 class="card-title">{{ $event->event_name }}</h5>
+                    <p class="card-text">artist: {{ $event->event_artist }}</p>
+                    <p class="card-text">penyelenggara: {{ $event->user->full_name }}</p>
+                    <p class="card-text">lokasi: {{ $event->event_location }}</p>
+                    <p class="card-text">tanggal: {{ $event->event_date }}</p>
+                    <p class="card-text">jam: {{ $event->event_start_time }} - {{ $event->event_end_time }}</p>
                 </div>
             </div>
         </div>
@@ -52,11 +52,11 @@
             <form class="d-flex justify-content-between" action="/EventBooking" method="POST">
                 @csrf
                 <div style="display: none">
-                    <input type="text" name="evet_id" value={{ $data->id }}>
+                    <input type="text" name="user_id" value={{ Auth::user()->id }}>
                     <input type="text" name="ticket_id" value={{ $ticket['id'] }}>
-                    <input type="text" name="quanity" value={{ $ticket['quantity'] }}>
+                    <input type="text" name="quantity" value={{ $ticket['quantity'] }}>
                 </div>
-                <a href="/HomePage" type="submit" class="btn btn-danger w-50 m-3 fs-3">Cancel</a>
+                <a onclick="location.href='{{ url()->previous() }}'" type="submit" class="btn btn-danger w-50 m-3 fs-3">Cancel</a>
                 <button type="submit" class="btn bg-darkblue text-white w-50 m-3 fs-3">Purchase</button>
             </form>
         </div>

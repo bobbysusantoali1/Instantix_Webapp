@@ -10,11 +10,11 @@ use App\Models\myBook;
 class EventBookingPage extends Controller
 {
     public function view(Request $request, $id){
-        $data = event::where('id', $id)->first();
+        $event = event::where('id', $id)->first();
         $tickets = ticket::where('event_id', $id)->get();
         $ticket = [];
         $ticket['category_name'] = $request->input('role');
-        $ticket['quantity'] = $request->quant;
+        $ticket['quantity'] = $request->qty;
         foreach ($tickets as $type) {
             if ($type->category_name == $request->input('role')) {
                 $ticket['price'] = $type->price;
@@ -24,7 +24,7 @@ class EventBookingPage extends Controller
         }
         return view('Components.EventBookingPage', [
             'title' => 'Event Booking',
-            'data' => $data,
+            'event' => $event,
             'ticket' => $ticket
         ]);
     }
@@ -37,9 +37,9 @@ class EventBookingPage extends Controller
         // $data->save();
 
         myBook::create([
-            'user_id' => $request->evet_id,
+            'user_id' => $request->user_id,
             'ticket_id' => $request->ticket_id,
-            'quantity' => $request->quanity
+            'quantity' => $request->quantity
         ]);
 
         return view('Components.MyBooking', [

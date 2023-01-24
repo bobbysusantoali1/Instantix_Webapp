@@ -44,14 +44,11 @@
                             </div>
                         </div>
                         <div class="quantity">
-                            <label style="width: 150px; margin-bottom: 3px"  for="q">Quantity</label>
-                            <input type="number" name="quant" id="q" class="form-control input-number" value="1" min="1" max="30">
+                            <label style="width: 150px; margin-bottom: 3px"  for="qty">Quantity</label>
+                            <input type="number" name="qty" id="qty" class="form-control input-number" value="1" min="1" max="30">
                         </div>
                     </div>
                     <div class="right" style="width: calc(100% / 3) !important">
-                        <div class="mdl text-center">
-                            <h5>Total Price: 100.000</h5>
-                        </div>
                         <div class="buttons d-flex mt-4" style="justify-content: center">
                             <button type="submit" style="width: 150px" class="btn btn-danger">Book Now</button>
                         </div>
