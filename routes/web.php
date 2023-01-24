@@ -58,9 +58,6 @@ Route::middleware('auth')->group(function(){
     Route::middleware('eventOrganizer')->group(function(){
         Route::get('/AddNewEvent', [AddNewEventPage::class, 'view']);
         Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert']);
-        // Route::get('/AddNewEvent', [
-        //     AddNewEventPage::class, 'view'
-        // ]);
         Route::get('/ManageEvent', [
             ManageEventPage::class, 'view'
         ]);
