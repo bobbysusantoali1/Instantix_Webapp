@@ -7,12 +7,12 @@ use App\Models\event;
 
 class HomePage extends Controller
 {
-    public function view(Request $request){
-        $data = event::all();
+    public function view(){
+        $events = event::all();
         return view('Components.Home',[
             'title' => 'Home Page InstanTix',
-            'data' => $data,
-            'datas' => $request->datas
+            'events' => $events,
+            'first_event' => $events->first()
         ]);
     }
 }
