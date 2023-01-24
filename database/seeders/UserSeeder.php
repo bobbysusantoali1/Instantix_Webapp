@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Carbon\Carbon;
+use Dotenv\Util\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
@@ -17,6 +19,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
                 "email" => "riopramana@gmail.com",
                 "password" => Hash::make("Pass123"),
                 "full_name" => "Rio Pramana",
@@ -27,6 +30,7 @@ class UserSeeder extends Seeder
                 "phone_number" => "087838208402"
             ],
             [
+                "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
                 "email" => "elsaangela@gmail.com",
                 "password" => Hash::make("Pass123"),
                 "full_name" => "Elsa Angela",
@@ -37,8 +41,9 @@ class UserSeeder extends Seeder
                 "phone_number" => "099938208143"
             ],
             [
+                "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
                 "email" => "elonmuskcorp@gmail.com",
-                "password" => bcrypt("Pass123"),
+                "password" => Hash::make("Pass123"),
                 "full_name" => "Elon Musk Corporation",
                 "address" => "Mars Street Number X9283",
                 "gender" => "Male",
