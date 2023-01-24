@@ -8,15 +8,15 @@
     <div class="card mb-3 p-3" style="max-width: 1200px; height: 600px">
         <div class="row g-0" style="height: 100%; width: 100%">
             <div class="col-md-8" style="max-width: 420px; margin-top: 50px;">
-              <div class="card-body">
-                <h3 class="card-title">Card title</h3>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="card-body">
+                <h3 class="card-title">{{ $first_event->event_name }}</h3>
+                <p class="card-text">{{ $first_event->event_desc }}</p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                <a style="margin-top: 200px;"class="btn btn-danger">Learn More</a>
+                <a href="/EventDetail/customer/{{ $first_event->id }}" style="margin-top: 200px;"class="btn btn-danger">Learn More</a>
               </div>
             </div>
-            <div class="col-md-4" style="width: auto;margin-top: auto; margin-bottom: auto">
-              <img src="{{ asset('images/event.png') }}" style="width: 730px" class="img-fluid rounded-start" alt="...">
+            <div class="col-md-4">
+              <img src="{{ URL::asset('images/'.$first_event->event_image) }}" class="img-fluid rounded-start" alt="...">
             </div>
         </div>
     </div>
