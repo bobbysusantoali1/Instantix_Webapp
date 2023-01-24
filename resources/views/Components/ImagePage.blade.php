@@ -7,7 +7,7 @@
           <h5 class="card-title">{{ $event->event_name }}</h5>
           <p class="card-text">{{ $event->event_artist }}</p>
           <p class="card-text">{{ $event->event_address }}</p>
-          <a href="/EventDetail" class="btn btn-danger">Detail Event</a>
+          <a href="/EventDetail/customer/{{ $event->id }}" class="btn btn-danger">Detail Event</a>
         </div>
     </div>
     @endforeach

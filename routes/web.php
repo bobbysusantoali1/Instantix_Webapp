@@ -43,7 +43,7 @@ Route::get('/Contact', [
     ContactPage::class, 'view'
 ]);
 
-Route::get('/EventDetail', [
+Route::get('/EventDetail/customer/{id}', [
     EventDetailPage::class, 'view'
 ]);
 
@@ -66,9 +66,6 @@ Route::middleware('auth')->group(function(){
     Route::middleware('customer')->group(function(){
         Route::post('/EventBooking', [
             EventBookingPage::class, 'view'
-        ]);
-        Route::get('/EventDetail/customer/{id}', [
-            EventDetailPage::class, 'view'
         ]);
 
     });

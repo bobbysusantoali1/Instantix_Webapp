@@ -8,13 +8,13 @@
                 @csrf
                 <div class="card-body d-flex">
                     <div class="left" style="width: calc(100% / 3) !important">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">artist: </p>
+                        <h5 class="card-title">{{ $data_event->event_name }}</h5>
+                        <p class="card-text">artist: {{ $data_event->event_artist }}</p>
                         <p class="card-text">penyelenggara: </p>
-                        <p class="card-text">lokasi: </p>
-                        <p class="card-text">tanggal: </p>
-                        <p class="card-text">jam: </p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <p class="card-text">lokasi: {{ $data_event->event_address }}</p>
+                        <p class="card-text">tanggal: {{ $data_event->event_date }}</p>
+                        <p class="card-text">jam: {{ $data_event->event_start_time.' - '.$data_event->event_end_time }} </p>
+                        <p class="card-text"><small class="text-muted">create at: {{ $data_event->created_at }}</small></p>
                     </div>
                     <div class="middle" style="width: calc(100% / 3) !important">
                         <div class="mdl text-center">
@@ -31,8 +31,13 @@
                                     <label style="width: 150px" class="btn btn-outline-danger" for="danger-outlined">VIP</label>
                                 </div>
                                 <div class="price d-flex">
-                                    <p style="margin-left: 7px;" class="card-text">100.000</p>
-                                    <p style="margin-left: 107px" class="card-text">500.000</p>
+                                    @foreach ($ticket as $item)
+                                        @if ($item->category_name == 'Regular')
+                                            <p style="margin-left: 7px;" class="card-text">{{ $item->price }}</p>
+                                        @else
+                                            <p style="margin-left: 107px" class="card-text">{{ $item->price }}</p>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
