@@ -24,7 +24,7 @@ class EventBookingPage extends Controller
         }
         return view('Components.EventBookingPage', [
             'title' => 'Event Booking',
-            'event' => $event,
+            'data_event' => $event,
             'ticket' => $ticket
         ]);
     }

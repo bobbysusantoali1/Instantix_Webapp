@@ -9,11 +9,13 @@
                 <div class="card-body d-flex">
                     <div class="left" style="width: calc(100% / 3) !important">
                         <h5 class="card-title">{{ $data_event->event_name }}</h5>
-                        <p class="card-text">artist: {{ $data_event->event_artist }}</p>
-                        <p class="card-text">penyelenggara: {{$data_event->user->full_name}}</p>
-                        <p class="card-text">lokasi: {{ $data_event->event_location }}</p>
-                        <p class="card-text">tanggal: {{ $data_event->event_date }}</p>
-                        <p class="card-text">jam: {{ date("H:i", strtotime($data_event->event_start_time)).' - '.date("H:i", strtotime($data_event->event_end_time)) }} </p>
+                        <p class="card-text">{{ $data_event->event_desc }}</p>
+                        <hr>
+                        <p class="card-text">Artist(s): {{ $data_event->event_artist }}</p>
+                        <p class="card-text">Organizer: {{$data_event->user->full_name}}</p>
+                        <p class="card-text">Event Location: {{ $data_event->event_location }}</p>
+                        <p class="card-text">Event Date: {{ $data_event->event_date }}</p>
+                        <p class="card-text">Event Time: {{ date("H:i", strtotime($data_event->event_start_time)).' - '.date("H:i", strtotime($data_event->event_end_time)) }} </p>
                         @php
                             date_default_timezone_set('Asia/Jakarta');
                         @endphp

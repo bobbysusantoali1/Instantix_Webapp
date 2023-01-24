@@ -3,15 +3,17 @@
 @section('content')
     <div class="container justify-content-center">
         <div class="card mb-3">
-            <img class="card-img-top" src="{{ URL::asset('images/'.$event->event_image) }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ URL::asset('images/'.$data_event->event_image) }}" alt="Card image cap">
             <div class="card-body d-flex">
                 <div class="left" style="width: calc(100% / 3) !important">
-                    <h5 class="card-title">{{ $event->event_name }}</h5>
-                    <p class="card-text">artist: {{ $event->event_artist }}</p>
-                    <p class="card-text">penyelenggara: {{ $event->user->full_name }}</p>
-                    <p class="card-text">lokasi: {{ $event->event_location }}</p>
-                    <p class="card-text">tanggal: {{ $event->event_date }}</p>
-                    <p class="card-text">jam: {{ $event->event_start_time }} - {{ $event->event_end_time }}</p>
+                    <h5 class="card-title">{{ $data_event->event_name }}</h5>
+                        <p class="card-text">{{ $data_event->event_desc }}</p>
+                        <hr>
+                        <p class="card-text">Artist(s): {{ $data_event->event_artist }}</p>
+                        <p class="card-text">Organizer: {{$data_event->user->full_name}}</p>
+                        <p class="card-text">Event Location: {{ $data_event->event_location }}</p>
+                        <p class="card-text">Event Date: {{ $data_event->event_date }}</p>
+                        <p class="card-text">Event Time: {{ date("H:i", strtotime($data_event->event_start_time)).' - '.date("H:i", strtotime($data_event->event_end_time)) }} </p>
                 </div>
             </div>
         </div>
