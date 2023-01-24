@@ -30,26 +30,11 @@ use App\Http\Controllers\EOPage;
 Route::get('/', function () {
     return redirect('/HomePage');
 });
-
-Route::get('/HomePage', [
-    HomePage::class, 'view'
-]);
-
-Route::get('/Browse', [
-    BrowsePage::class, 'view'
-]);
-
-Route::get('/Contact', [
-    ContactPage::class, 'view'
-]);
-
-Route::get('/EventDetail/customer/{id}', [
-    EventDetailPage::class, 'view'
-]);
-
-Route::get('/AboutUs', [
-    AboutUsPage::class, 'view'
-]);
+Route::get('/HomePage', [HomePage::class, 'view']);
+Route::get('/Browse', [BrowsePage::class, 'view']);
+Route::get('/Contact', [ContactPage::class, 'view']);
+Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view']);
+Route::get('/AboutUs', [AboutUsPage::class, 'view']);
 
 
 // for guest
