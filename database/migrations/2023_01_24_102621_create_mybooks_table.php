@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,24 +15,11 @@ class CreateMyBooksTable extends Migration
     public function up()
     {
         Schema::create('myBooks', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('organizer_id');
-            $table->foreign('organizer_id')->references('id')->on('users');
-            $table->string('customer_name');
-            $table->string('customer_age');
-            $table->string('customer_id_card');
-            $table->string('event_name');
-            $table->string('event_address');
-            $table->string('event_artist');
-            $table->string('event_image');
-            $table->string('ticket_category');
-            $table->integer('price');
+            $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('ticket_id')->constrained();
             $table->integer('quantity');
-            $table->date('event_date');
-            $table->time('event_end_time');
-            $table->datetime('event_booking_time');
-            $table->string('event_booking_code');
-            $table->timestamps();
+            $table->timestamps()->default(Carbon::now());
         });
     }
 
