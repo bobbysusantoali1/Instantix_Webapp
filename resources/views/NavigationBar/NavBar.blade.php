@@ -26,16 +26,10 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a class="nav-link" href=" ViewMedia ">Media</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link @yield('active_about')" href="/AboutUs">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('active_contact')" href="/Contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href=" ViewPartner ">Partner</a>
+                        <a class="nav-link @yield('active_contact')" href="/contact-form">Contact</a>
                     </li>
                     @if (Auth::check())
                         <form action="/Logout" method="POST">

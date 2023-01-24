@@ -32,10 +32,11 @@ Route::get('/', function () {
 });
 Route::get('/HomePage', [HomePage::class, 'view'])->middleware('loc');
 Route::get('/Browse', [BrowsePage::class, 'view'])->middleware('loc');
-Route::get('/Contact', [ContactPage::class, 'view']);
+// Route::get('/Contact', [ContactPage::class, 'view']);
 Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view']);
 Route::get('/AboutUs', [AboutUsPage::class, 'view']);
-
+Route::get('/contact-form', [App\Http\Controllers\ContactPage::class, 'view'])->name('contact-form');
+Route::post('/contact-form', [App\Http\Controllers\ContactPage::class, 'ContactUsForm'])->name('contact-form.store');
 
 // for guest
 Route::middleware('guest')->group(function(){
