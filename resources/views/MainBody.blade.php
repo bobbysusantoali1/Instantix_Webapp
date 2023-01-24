@@ -8,7 +8,7 @@
     @if ( (Route::is('login', 'index_register')) ? false:true)
         <footer class="bg-darkblue text-white p-3">
             <div class="m-5">
-                <h2 class="fw-bold">IntanTix</h2>
+                <h2 class="fw-bold">InstanTix</h2>
             </div>
             <div class="m-5 fs-5">
                  Copyright &copy;2023. All Rights Reserved.
