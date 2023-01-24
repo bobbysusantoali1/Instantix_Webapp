@@ -15,6 +15,7 @@ class CreateMyBooksTable extends Migration
     {
         Schema::create('myBooks', function (Blueprint $table) {
             $table->string('id')->primary();
+            $table->string('organizer_id');
             $table->foreign('organizer_id')->references('id')->on('users');
             $table->string('customer_name');
             $table->string('customer_age');
