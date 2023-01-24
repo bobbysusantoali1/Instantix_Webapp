@@ -3,6 +3,8 @@
 @section('content')
 <div class="container">
     {{-- event news --}}
+
+    @if (!Auth::check() || auth()->user()->role != 'eventOrganizer')
     <div class="card mb-3 p-3" style="max-width: 1200px; height: 600px">
         <div class="row g-0" style="height: 100%; width: 100%">
             <div class="col-md-8" style="max-width: 420px; margin-top: 50px;">
@@ -22,7 +24,6 @@
     <div class="title mt-5" style="text-align: center; font-weight: bold; font-size: 2rem">
         <p>Find Event</p>
     </div>
-
     <section class="search-sec">
         <div class="container">
             <form action="#" method="post">
@@ -64,6 +65,7 @@
             </form>
         </div>
     </section>
+    @endif
     @include('Components.ImagePage')
     @if (!Auth::check() || auth()->user()->role != 'customer')
         <div class="text-end w-100">
