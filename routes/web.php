@@ -13,6 +13,7 @@ use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\ManageEventPage;
 use App\Http\Controllers\EventBookingPage;
 use App\Http\Controllers\AboutUsPage;
+use App\Http\Controllers\EOPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,12 +50,15 @@ Route::get('/EventDetail', [
 Route::get('/AboutUs', [
     AboutUsPage::class, 'view'
 ]);
-Route::get('/AddNewEvent', [
-    AddNewEventPage::class, 'view'
-]);
+
 Route::get('/ManageEvent', [
     ManageEventPage::class, 'view'
 ]);
+Route::get('/EOPage', [
+    EOPage::class, 'view'
+]);
+Route::get('/AddEvent', [AddNewEventPage::class, 'create']);
+Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert']);
 
 // for guest
 Route::middleware('guest')->group(function(){
