@@ -16,7 +16,6 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreign('organizer_id')->references('id')->on('users');
-            $table->foreign('ticketcategories_id')->references('id')->on('ticketcategories');
             $table->string('event_name');
             $table->string('event_address');
             $table->string('event_artist');
