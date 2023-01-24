@@ -1,6 +1,6 @@
 @extends('MainBody')
 @section('title', $title)
-{{-- @section('active', ($active == 'Browse') ? 'active' : '') --}}
+@section('active_about', ($active == 'About Us') ? 'active' : '')
 @section('content')
 
 <!DOCTYPE html>
@@ -31,13 +31,6 @@
 
         </a>
     </div>
-
-
-
-
-
-
-
 </body>
 </html>
 {{-- @include('Components.ImagePage') --}}

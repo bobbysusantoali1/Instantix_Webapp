@@ -27,7 +27,7 @@
                         <a class="nav-link" href=" ViewMedia ">Media</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/AboutUs">About Us</a>
+                        <a class="nav-link @yield('active_about')" href="/AboutUs">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @yield('active_contact')" href="/Contact">Contact</a>
