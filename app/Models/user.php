@@ -43,6 +43,6 @@ class user extends Model implements Authenticatable
     ];
 
     protected $hidden = [
-        'password',
+        'password'
     ];
 }
