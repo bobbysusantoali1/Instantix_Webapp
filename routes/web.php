@@ -45,10 +45,12 @@ Route::get('/EventDetail', [
 // for guest
 Route::middleware('guest')->group(function(){
     Route::get('/Login', [LoginPage::class, 'view'])->name('login');
-    Route::post('/Login', [LoginPage::class, 'autheticate']);
+    Route::post('/Login', [LoginPage::class, 'authenticate']);
     Route::get('/Register', [RegisterPage::class, 'view']);
     Route::Post('/Register', [RegisterPage::class, 'insert']);
 });
+
+Route::get('/Logout', [LoginPage::class, 'Logout']);
 
 // get url image without storage:link
 Route::get('/storage/app/public/images/{nama}', function($nama){

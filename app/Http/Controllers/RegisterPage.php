@@ -26,9 +26,7 @@ class RegisterPage extends Controller
             'gender' => ['required'],
             'phoneNumber' => ['numeric','required','digits_between:10,13' ]
         ]);
-
         $validate['password'] = Hash::make($validate['password']);
-
 
         if(user::create($validate)){
             return redirect('/Login')->with('status', 'Register Success');
