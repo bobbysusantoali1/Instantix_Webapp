@@ -67,6 +67,10 @@ Route::middleware('auth')->group(function(){
         Route::post('/EventBooking', [
             EventBookingPage::class, 'view'
         ]);
+        Route::get('/EventDetail/customer/{id}', [
+            EventDetailPage::class, 'view'
+        ]);
+
     });
 
     // for EO
