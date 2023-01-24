@@ -11,7 +11,7 @@ class EODashboardController extends Controller
         $events = Auth::user()->event;
 
         $retVal = [
-            'events', $events
+            'events' => $events
         ];
 
         return view('eventOrganizer.myEvents', $retVal);

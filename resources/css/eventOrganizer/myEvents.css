@@ -1,0 +1,15 @@
+.event-image {
+    display: block;
+    max-width: 320px;
+    max-height: 320px;
+    width: auto;
+    height: auto;
+}
+
+.event-item:hover {
+    transform: translate(-4px, -4px);
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, .1);
+    cursor: pointer;
+}

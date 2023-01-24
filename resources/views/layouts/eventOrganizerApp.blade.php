@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="./../../css/layouts/eventOrganizerApp.css">
+    @yield('content-css')
 @endsection
 
 @section('Body')
@@ -11,7 +12,7 @@
                 Dashboard
             </div>
             <ul class="menu">
-                <li class="menu-item">Menu 1</li>
+                <li class="menu-item">My Events</li>
                 <li class="menu-item">Menu 2</li>
                 <li class="menu-item">Menu 3</li>
                 <li class="menu-item">Menu 4</li>
@@ -19,7 +20,7 @@
             </ul>
         </div>
         <div class="dashboard-content">
-            <h1 class="dashboard-content--title">@yield('dashboard-content-title')</h1>
+            <h1 class="dashboard-content--title mb-5">@yield('dashboard-content-title')</h1>
             @yield('dashboard-content')
         </div>
     </div>

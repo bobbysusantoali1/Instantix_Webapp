@@ -20,6 +20,12 @@ mix.js("resources/js/app.js", "public/js").postCss(
 );
 
 mix.postCss(
+    "resources/css/eventOrganizer/myEvents.css",
+    "public/css/eventOrganizer",
+    []
+);
+
+mix.postCss(
     "resources/css/layouts/eventOrganizerApp.css",
     "public/CSS/layouts"
 );
