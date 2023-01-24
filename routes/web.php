@@ -30,41 +30,38 @@ use App\Http\Controllers\EOPage;
 Route::get('/', function () {
     return redirect('/HomePage');
 });
-Route::get('/HomePage', [HomePage::class, 'view'])->middleware('loc');
-Route::get('/Browse', [BrowsePage::class, 'view'])->middleware('loc');
+Route::get('/HomePage', [HomePage::class, 'view'])->middleware('loc')->name('view-home');
+Route::get('/Browse', [BrowsePage::class, 'view'])->middleware('loc')->name('view-browse');
 // Route::get('/Contact', [ContactPage::class, 'view']);
-Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view']);
-Route::get('/AboutUs', [AboutUsPage::class, 'view']);
-Route::get('/contact-form', [App\Http\Controllers\ContactPage::class, 'view'])->name('contact-form');
-Route::post('/contact-form', [App\Http\Controllers\ContactPage::class, 'ContactUsForm'])->name('contact-form.store');
+Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view'])->name('view-event');
+Route::get('/AboutUs', [AboutUsPage::class, 'view'])->name('view-about-us');
+Route::get('/contact-form', [ContactPage::class, 'view'])->name('contact-form');
+Route::post('/contact-form', [ContactPage::class, 'ContactUsForm'])->name('contact-form.store');
 
 // for guest
 Route::middleware('guest')->group(function(){
     Route::get('/Login', [LoginPage::class, 'view'])->name('login');
-    Route::post('/Login', [LoginPage::class, 'authenticate']);
-    Route::get('/Register', [RegisterPage::class, 'view']);
-    Route::Post('/Register', [RegisterPage::class, 'insert']);
+    Route::post('/Login', [LoginPage::class, 'authenticate'])->name('authenticate-login');
+    Route::get('/Register', [RegisterPage::class, 'view'])->name('register');
+    Route::Post('/Register', [RegisterPage::class, 'insert'])->name('insert-register');
 });
 
 // for auth user
 Route::middleware('auth')->group(function(){
     // for customer
     Route::middleware('customer')->group(function(){
-        Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view']);
-        Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view']);
-        Route::post('/EventBooking', [EventBookingPage::class, 'purchase']);
+        Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view'])->name('view-event');
+        Route::post('/EventBooking', [EventBookingPage::class, 'purchase'])->name('purchase-ticket');
     });
 
     // for EO
     Route::middleware('eventOrganizer')->group(function(){
-        Route::get('/AddNewEvent', [AddNewEventPage::class, 'view']);
-        Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert']);
-        Route::get('/ManageEvent', [
-            ManageEventPage::class, 'view'
-        ]);
+        Route::get('/AddNewEvent', [AddNewEventPage::class, 'view'])->name('view-add-event');
+        Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert'])->name('insert-event');
+        Route::get('/ManageEvent', [ManageEventPage::class, 'view'])->name('view-manage-event');
     });
 
-    Route::post('/Logout', [LoginPage::class, 'Logout']);
+    Route::post('/Logout', [LoginPage::class, 'Logout'])->name('logout');
 });
 
 // get url image without storage:link
