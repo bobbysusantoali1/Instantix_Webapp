@@ -49,7 +49,12 @@ Route::get('/EventDetail', [
 Route::get('/AboutUs', [
     AboutUsPage::class, 'view'
 ]);
-
+Route::get('/AddNewEvent', [
+    AddNewEventPage::class, 'view'
+]);
+Route::get('/ManageEvent', [
+    ManageEventPage::class, 'view'
+]);
 
 // for guest
 Route::middleware('guest')->group(function(){

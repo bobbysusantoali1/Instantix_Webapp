@@ -60,13 +60,25 @@
                     <input type="number" placeholder="1" min="1" class="form-control" name="EventVIPTicket" id="EventVIPTicket">
                 </div>
             </div>
+
             <div class="row mb-3">
                 <label for="EventPrice" class="col-sm-4">Price</label>
                 <div class="col-sm-4">
-                    <input type="number" min="10000" class="form-control" name="EventRegularPrice" id="EventRegularPrice" placeholder="10000">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp.</span>
+                        </div>
+                        <input type="number" min="10000" class="form-control" name="EventRegularPrice" id="EventRegularPrice" placeholder="10000">
+                    </div>
+
                 </div>
                 <div class="col-sm-4">
-                    <input type="number" min="20000" class="form-control" name="EventVIPPrice" id="EventVIPPrice" placeholder="20000">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp.</span>
+                        </div>
+                        <input type="number" min="20000" class="form-control" name="EventVIPPrice" id="EventVIPPrice" placeholder="20000">
+                    </div>
                 </div>
             </div>
             <div class="mb-4 d-flex justify-content-center">
@@ -75,3 +87,6 @@
     </form>
 </div>
 @endsection
+
+
+
