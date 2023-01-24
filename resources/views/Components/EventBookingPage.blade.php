@@ -27,7 +27,7 @@
                         <h3>Type</h3>
                     </div>
                     <div class="w-50 text-center">
-                        <h3>{{ $ticket['category_name'] }}</h3>
+                        <h3>{{ $ticket->category_name }}</h3>
                     </div>
                 </div>
                 <div class="d-flex">
@@ -35,7 +35,7 @@
                         <h3>Price</h3>
                     </div>
                     <div class="w-50 text-center">
-                        <h3>{{ $ticket['price'] }}</h3>
+                        <h3>{{ $ticket->price }}</h3>
                     </div>
                 </div>
                 <div class="d-flex">
@@ -43,13 +43,13 @@
                         <h3>Quantity</h3>
                     </div>
                     <div class="w-50 text-center">
-                        <h3>{{ $ticket['quantity'] }}</h3>
+                        <h3>{{ $qty }}</h3>
                     </div>
                 </div>
             </div>
             <div class="text-center">
                 <h1>Total Price</h1>
-                <h2>{{ $ticket['quantity']*$ticket['price'] }}</h2>
+                <h2>{{ $qty * $ticket->price }}</h2>
             </div>
             <form class="d-flex justify-content-between" action="/EventBooking" method="POST">
                 @csrf

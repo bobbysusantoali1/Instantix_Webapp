@@ -51,7 +51,7 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     // for customer
     Route::middleware('customer')->group(function(){
-        Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view'])->name('view-event');
+        Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view_book'])->name('view-book-detail');
         Route::post('/EventBooking', [EventBookingPage::class, 'purchase'])->name('purchase-ticket');
     });
 

@@ -16,23 +16,14 @@ class EventBookingPage extends Controller
         ]);
     }
 
-    public function book(Request $request, $id){
-        $event = event::where('id', $id)->first();
-        $tickets = $event->ticket;
-        $ticket = [];
-        $ticket['category_name'] = $request->input('role');
-        $ticket['quantity'] = $request->qty;
-        foreach ($tickets as $type) {
-            if ($type->category_name == $request->input('role')) {
-                $ticket['price'] = $type->price;
-                $ticket['id'] = $type->id;
-                break;
-            }
-        }
+    public function view_book(Request $request, $id){
+        $event = event::find($id);
+        $ticket = event::where('id', $id)->first()->ticket->where('category_name', $request->category)->first();
         return view('Components.EventBookingPage', [
             'title' => 'Event Booking',
             'data_event' => $event,
-            'ticket' => $ticket
+            'ticket' => $ticket,
+            'qty' => $request->qty
         ]);
     }
 
