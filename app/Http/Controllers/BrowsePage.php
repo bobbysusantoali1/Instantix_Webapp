@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 
 class BrowsePage extends Controller
 {
-    public function view(){
+    public function view(Request $request){
         $data = event::all();
         return view('Components.BrowsePage', [
             'title' => 'Browse',
             'active' => 'Browse',
-            'data' => $data
+            'data' => $data,
+            'datas' => $request->datas
         ]);
     }
 }
