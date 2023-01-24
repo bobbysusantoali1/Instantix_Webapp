@@ -18,9 +18,9 @@ class CreateMyBooksTable extends Migration
             $table->uuid('id')->primary();
             // $table->foreignId('user_id')->constrained();
             // $table->foreignId('ticket_id')->constrained();
-            $table->string('user_id');
+            $table->string('user_id', 64);
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('ticket_id');
+            $table->string('ticket_id', 64);
             $table->foreign('ticket_id')->references('id')->on('tickets');
             $table->integer('quantity');
             // $table->timestamps()->default(Carbon::now());

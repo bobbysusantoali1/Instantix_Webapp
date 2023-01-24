@@ -27,10 +27,13 @@ class AddNewEventPage extends Controller
             'event_end_time' => ['required']
         ]);
 
-        $validateticket = $request->validate([
+        $validateticketregular = $request->validate([
             'EventRegularTicket' => ['required','numeric','min:10'],
+            'EventRegularPrice' => ['required','numeric','min:10000']
+        ]);
+
+        $validateticketvip = $request->validate([
             'EventVIPTicket' => ['required','numeric','min:10'],
-            'EventRegularPrice' => ['required','numeric','min:10000'],
             'EventVIPPrice' => ['required','numeric','min:20000']
         ]);
 
@@ -42,15 +45,27 @@ class AddNewEventPage extends Controller
 
         $validate['event_image'] = $Image_Url;
         $validate['user_id'] = Auth::user()->id;
-        // dd($validate);
         event::create($validate);
-        // $idx = event::latest()->first();
-        // dd($idx);
+        $idx = event::latest()->first();
 
-        // if(true){
-        //     return redirect('/HomePage')->with('status', 'Add New Event Success');
-        // }else{
-        //     return redirect()->back()->with('status', 'Fail');
-        // }
+        $init = new ticket();
+        $init['event_id'] = $idx;
+        $init['category_name'] = 'Regular';
+        $init['category_desc'] = 'Hello iam under water';
+        $init['category_init_stock'] = $validateticketregular['EventRegularTicket'];
+        $init['category_curr_stock'] = $validateticketregular['EventRegularTicket'];
+        $init['price'] = $validateticketregular['EventRegularPrice'];
+        $init->save();
+
+        $init1 = new ticket();
+        $init1['event_id'] = $idx;
+        $init1['category_name'] = 'VIP';
+        $init1['category_desc'] = 'Hello iam under water exstra';
+        $init1['category_init_stock'] = $validateticketvip['EventVIPTicket'];
+        $init1['category_curr_stock'] = $validateticketvip['EventVIPTicket'];
+        $init1['price'] = $validateticketvip['EventVIPPrice'];
+        $init1->save();
+
+        return redirect('/HomePage')->with('status', 'Add New Event Success');
     }
 }
