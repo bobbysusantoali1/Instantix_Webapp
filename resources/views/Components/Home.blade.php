@@ -66,6 +66,11 @@
         </div>
     </section>
     @endif
+    @if (!Auth::check() || auth()->user()->role != 'customer')
+        <div class="d-flex justify-content-center">
+            <h1>Event</h1>
+        </div>
+    @endif
     @include('Components.ImagePage')
     @if (!Auth::check() || auth()->user()->role != 'customer')
         <div class="text-end w-100">
