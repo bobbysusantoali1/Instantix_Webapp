@@ -5,8 +5,10 @@
         <img class="card-img-top" src="{{ url('storage/app/public/'.$event->event_image) }}" alt="">
         <div class="card-body">
           <h5 class="card-title">{{ $event->event_name }}</h5>
-          <p class="card-text">{{ $event->event_artist }}</p>
-          <p class="card-text">{{ $event->event_address }}</p>
+          <p class="card-text">Artist: {{ $event->event_artist }}</p>
+          <p class="card-text">Location: {{ $event->event_address }}</p>
+          <p class="card-text">Date: {{ $event->event_date }} </p>
+          <p class="card-text">Time: {{ date("H:i", strtotime($event->event_start_time)).' - '.date("H:i", strtotime($event->event_end_time)) }} </p>
           <a href="/EventDetail/customer/{{ $event->id }}" class="btn btn-danger">Detail Event</a>
         </div>
     </div>

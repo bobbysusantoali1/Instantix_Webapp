@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="card mb-3">
-            <img class="card-img-top" src="{{ asset('event.png') }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ url('storage/app/public/'.$data_event->event_image) }}" alt="Card image cap">
             <form action="/EventBooking" method="post">
                 @csrf
                 <div class="card-body d-flex">
@@ -13,7 +13,10 @@
                         <p class="card-text">penyelenggara: {{$data_event->user->full_name}}</p>
                         <p class="card-text">lokasi: {{ $data_event->event_address }}</p>
                         <p class="card-text">tanggal: {{ $data_event->event_date }}</p>
-                        <p class="card-text">jam: {{ $data_event->event_start_time.' - '.$data_event->event_end_time }} </p>
+                        <p class="card-text">jam: {{ date("H:i", strtotime($data_event->event_start_time)).' - '.date("H:i", strtotime($data_event->event_end_time)) }} </p>
+                        @php
+                            date_default_timezone_set('Asia/Jakarta');
+                        @endphp
                         <p class="card-text"><small class="text-muted">create at: {{ $data_event->created_at }}</small></p>
                     </div>
                     <div class="middle" style="width: calc(100% / 3) !important">
