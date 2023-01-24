@@ -7,86 +7,83 @@
         @if ($errors->any())
             {{$errors}}
         @endif
-            <div class="row mt-4 mb-3">
-                <label for="EventName" class="col-sm-4 font-weight-bold">Nama Event</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" name="EventName" id="EventName">
-                </div>
+        <div class="row mt-4 mb-3">
+            <label for="event_name" class="col-sm-4 font-weight-bold">Nama Event</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="event_name" id="event_name">
             </div>
-            <div class="row mb-3">
-                <label for="EventImage" class="form-label col-sm-4">Poster</label>
-                <div class="col-sm-8">
-                    <input type="file" class="form-control" name="EventImage" id="formFile">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <label for="event_image" class="col-sm-4">Poster</label>
+            <div class="col-sm-8">
+                <input type="file" class="form-control" name="event_image" id="event_image">
             </div>
-            <div class="row mb-3">
-                <label for="EventArtist" class="col-sm-4">Artist</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" name="EventArtist" id="naEventArtistme">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <label for="event_artist" class="col-sm-4">Artist</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="event_artist" id="event_artist">
             </div>
-            <div class="row mb-3">
-                <label for="EventLocation" class="col-sm-4">Lokasi</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" name="EventLocation" id="EventLocation">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <label for="event_address" class="col-sm-4">Lokasi</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="event_address" id="event_address">
             </div>
-            <div class="row mb-3">
-                <label for="EventDate" class="col-sm-4">Tanggal</label>
-                <div class="col-sm-8">
-                    <input type="date" class="form-control" name="EventDate" id="EventDate">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <label for="event_date" class="col-sm-4">Tanggal</label>
+            <div class="col-sm-8">
+                <input type="date" class="form-control" name="event_date" id="event_date">
             </div>
-            <div class="row mb-3">
-                <label for="EventTime" class="col-sm-4">Jam</label>
-                <div class="col-sm-4">
-                    <input type="time" class="form-control" name="EventStartTime" id="EventStartTime">
-                </div>
-                <div class="col-sm-4">
-                    <input type="time" class="form-control" name="EventEndTime" id="EventEndTime">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <label for="EventTime" class="col-sm-4">Jam</label>
+            <div class="col-sm-4">
+                <input type="time" class="form-control" name="event_start_time" id="event_start_time">
             </div>
-            <div class="row mb-3">
-                <div class="col-sm-4"></div>
-                <label for="EventRegular" class="col-sm-4 d-flex justify-content-center">Regular</label>
-                <label for="EventVIP" class="col-sm-4 d-flex justify-content-center">VIP</label>
+            <div class="col-sm-4">
+                <input type="time" class="form-control" name="event_end_time" id="event_end_time">
             </div>
-            <div class="row mb-3">
-                <label for="EventTicket" class="col-sm-4">Ticket Stock</label>
-                <div class="col-sm-4">
-                    <input type="number" placeholder="1" min="1" class="form-control" name="EventRegularTicket" id="EventRegularTicket">
-                </div>
-                <div class="col-sm-4">
-                    <input type="number" placeholder="1" min="1" class="form-control" name="EventVIPTicket" id="EventVIPTicket">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-4"></div>
+            <label for="EventRegular" class="col-sm-4 d-flex justify-content-center">Regular</label>
+            <label for="EventVIP" class="col-sm-4 d-flex justify-content-center">VIP</label>
+        </div>
+        <div class="row mb-3">
+            <label for="EventTicket" class="col-sm-4">Ticket Stock</label>
+            <div class="col-sm-4">
+                <input type="number" placeholder="1" min="1" class="form-control" name="EventRegularTicket" id="EventRegularTicket">
             </div>
+            <div class="col-sm-4">
+                <input type="number" placeholder="1" min="1" class="form-control" name="EventVIPTicket" id="EventVIPTicket">
+            </div>
+        </div>
 
-            <div class="row mb-3">
-                <label for="EventPrice" class="col-sm-4">Price</label>
-                <div class="col-sm-4">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Rp.</span>
-                        </div>
-                        <input type="number" min="10000" class="form-control" name="EventRegularPrice" id="EventRegularPrice" placeholder="10000">
+        <div class="row mb-3">
+            <label for="EventPrice" class="col-sm-4">Price</label>
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp.</span>
                     </div>
+                    <input type="number" min="10000" class="form-control" name="EventRegularPrice" id="EventRegularPrice" placeholder="10000">
+                </div>
 
-                </div>
-                <div class="col-sm-4">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Rp.</span>
-                        </div>
-                        <input type="number" min="20000" class="form-control" name="EventVIPPrice" id="EventVIPPrice" placeholder="20000">
+            </div>
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp.</span>
                     </div>
+                    <input type="number" min="20000" class="form-control" name="EventVIPPrice" id="EventVIPPrice" placeholder="20000">
                 </div>
             </div>
-            <div class="mb-4 d-flex justify-content-center">
-                <button type="submit" class="btn bg-blue">Create</button>
-            </div>
+        </div>
+        <div class="mb-4 d-flex justify-content-center">
+            <button type="submit" class="btn bg-blue">Create</button>
+        </div>
     </form>
 </div>
 @endsection
-
-
-

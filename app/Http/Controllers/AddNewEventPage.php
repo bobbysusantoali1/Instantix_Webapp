@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\event;
+use App\Models\ticket;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class AddNewEventPage extends Controller
 {
@@ -13,32 +15,44 @@ class AddNewEventPage extends Controller
             'title' => 'AddNewEvent',
         ]);
     }
-    public function create(){
-        $events = DB::table('events')->get();
-        return view('Components.AddNewEventPage', [
-            'title' => 'AddNewEvent',
-        ], compact('events'));
-        // return view('Components.AddNewEventPage', compact('events'));
-    }
 
     public function insert(Request $request){
-        $image = $request->file('EventImage');
-        $imageName = $image->getClientOriginalName();
-        Storage::putFileAs('public/images', $image, $imageName);
-
-        DB::table('events')
-        // ->join('ticketcategories', 'events.id', '=', 'ticketcategories.event_id')
-        ->insert([
-            'event_name'=>$request->EventName,
-            'event_image'=>$imageName,
-            'event_artist'=>$request->EventArtist,
-            'event_address'=>$request->EventLocation,
-            'event_date'=>$request->EventDate,
-            'event_start_time'=> $request->EventStartTime,
-            'event_end_time'=> $request->EventEndTime,
-            // bingung masukin ticekt stock sama harganya di ticket category
+        $validate = $request->validate([
+            'event_name' => ['required','min:5','max:30'],
+            'event_image' => ['required','image'],
+            'event_artist' => ['required'],
+            'event_address' => ['required','min:5'],
+            'event_date' => ['required'],
+            'event_start_time' => ['required'],
+            'event_end_time' => ['required']
         ]);
 
-        return redirect('/EOPage');
+        $validateticket = $request->validate([
+            'EventRegularTicket' => ['required','numeric','min:10'],
+            'EventVIPTicket' => ['required','numeric','min:10'],
+            'EventRegularPrice' => ['required','numeric','min:10000'],
+            'EventVIPPrice' => ['required','numeric','min:20000']
+        ]);
+
+        $image = $validate['event_image'];
+        $Ext_Image = $image->clientExtension();
+
+        Storage::putFileAs('public/images',$image, str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image);
+        $Image_Url = 'images/'.str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image;
+
+        $validate['event_image'] = $Image_Url;
+        $validate['organizer_id'] = Auth::user()->id;
+        // dd($validate);
+        event::create($validate);
+        $idx = event::latest()->first();
+        dd($idx);
+
+
+
+        if(true){
+            return redirect('/HomePage')->with('status', 'Add New Event Success');
+        }else{
+            return redirect()->back()->with('status', 'Fail');
+        }
     }
 }

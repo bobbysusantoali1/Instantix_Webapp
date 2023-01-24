@@ -71,7 +71,7 @@ Route::middleware('auth')->group(function(){
 
     // for EO
     Route::middleware('eventOrganizer')->group(function(){
-        Route::get('/AddEvent', [AddNewEventPage::class, 'create']);
+        Route::get('/AddNewEvent', [AddNewEventPage::class, 'view']);
         Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert']);
         // Route::get('/AddNewEvent', [
         //     AddNewEventPage::class, 'view'

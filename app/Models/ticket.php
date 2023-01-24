@@ -14,7 +14,7 @@ class ticket extends Model
     use HasFactory, Notifiable;
     use AuthenticableTrait;
 
-    protected $table = 'users';
+    protected $table = 'tickets';
 
     // for UUID
     public $increment = false;

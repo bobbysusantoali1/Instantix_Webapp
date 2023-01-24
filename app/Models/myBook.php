@@ -14,7 +14,7 @@ class myBook extends Model
     use HasFactory, Notifiable;
     use AuthenticableTrait;
 
-    protected $table = 'users';
+    protected $table = 'myBooks';
 
     // for UUID
     public $increment = false;

@@ -14,7 +14,7 @@ class event extends Model
     use HasFactory, Notifiable;
     use AuthenticableTrait;
 
-    protected $table = 'users';
+    protected $table = 'events';
 
     // for UUID
     public $increment = false;
