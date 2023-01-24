@@ -5,7 +5,7 @@
         @yield('content')
     </div>
 
-    @if ( (Route::is('index_login', 'index_register')) ? false:true)
+    @if ( (Route::is('login', 'index_register')) ? false:true)
         <footer class="bg-darkblue text-white p-3">
             <div class="m-5">
                 <h2 class="fw-bold">IntanTix</h2>

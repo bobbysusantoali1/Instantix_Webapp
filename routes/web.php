@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomePage;
+use App\Http\Controllers\LoginPage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
@@ -24,6 +25,11 @@ Route::get('/', function () {
 Route::get('/HomePage', [
     HomePage::class, 'view'
 ]);
+
+// for guest
+Route::middleware('guest')->group(function(){
+    Route::get('/Login', [LoginPage::class, 'view'])->name('login');
+});
 
 // get url image without storage:link
 Route::get('/storage/app/public/images/{nama}', function($nama){
