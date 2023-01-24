@@ -11,7 +11,7 @@
                         <h5 class="card-title">{{ $data_event->event_name }}</h5>
                         <p class="card-text">artist: {{ $data_event->event_artist }}</p>
                         <p class="card-text">penyelenggara: {{$data_event->user->full_name}}</p>
-                        <p class="card-text">lokasi: {{ $data_event->event_address }}</p>
+                        <p class="card-text">lokasi: {{ $data_event->event_location }}</p>
                         <p class="card-text">tanggal: {{ $data_event->event_date }}</p>
                         <p class="card-text">jam: {{ date("H:i", strtotime($data_event->event_start_time)).' - '.date("H:i", strtotime($data_event->event_end_time)) }} </p>
                         @php

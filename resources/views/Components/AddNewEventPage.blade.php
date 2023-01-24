@@ -26,9 +26,9 @@
             </div>
         </div>
         <div class="row mb-3">
-            <label for="event_address" class="col-sm-4">Lokasi</label>
+            <label for="event_location" class="col-sm-4">Lokasi</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" name="event_address" id="event_address" value="{{ old('event_address') }}">
+                <input type="text" class="form-control" name="event_location" id="event_location" value="{{ old('event_location') }}">
             </div>
         </div>
         <div class="row mb-3">

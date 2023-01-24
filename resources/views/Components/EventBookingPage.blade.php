@@ -9,7 +9,7 @@
                     <h5 class="card-title">{{ $data->event_name }}</h5>
                     <p class="card-text">artist: {{ $data->event_artist }}</p>
                     <p class="card-text">penyelenggara: {{ $data->user->full_name }}</p>
-                    <p class="card-text">lokasi: {{ $data->event_address }}</p>
+                    <p class="card-text">lokasi: {{ $data->event_location }}</p>
                     <p class="card-text">tanggal: {{ $data->event_date }}</p>
                     <p class="card-text">jam: {{ $data->event_start_time }} - {{ $data->event_end_time }}</p>
                 </div>

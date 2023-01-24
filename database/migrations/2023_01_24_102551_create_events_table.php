@@ -20,7 +20,7 @@ class CreateEventsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('event_name');
             $table->string('event_desc');
-            $table->string('event_address');
+            $table->string('event_location');
             $table->string('event_artist');
             $table->string('event_image');
             $table->date('event_date');

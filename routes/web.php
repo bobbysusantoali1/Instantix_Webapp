@@ -51,15 +51,13 @@ Route::middleware('auth')->group(function(){
     Route::middleware('customer')->group(function(){
         Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view']);
         Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view']);
+        Route::post('/EventBooking', [EventBookingPage::class, 'purchase']);
     });
 
     // for EO
     Route::middleware('eventOrganizer')->group(function(){
         Route::get('/AddNewEvent', [AddNewEventPage::class, 'view']);
         Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert']);
-        // Route::get('/AddNewEvent', [
-        //     AddNewEventPage::class, 'view'
-        // ]);
         Route::get('/ManageEvent', [
             ManageEventPage::class, 'view'
         ]);
