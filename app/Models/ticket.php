@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class ticketcategory extends Model
+class ticket extends Model
 {
     use HasFactory, Notifiable;
     use AuthenticableTrait;
@@ -29,6 +29,14 @@ class ticketcategory extends Model
                 $models->setAttribute($models->getKeyName(), Str::uuid()->toString());
             }
         });
+    }
+
+    public function user(){
+        return $this->belongsTo(event::class);
+    }
+
+    public function myBook(){
+        return $this->belongsToMany(myBook::class);
     }
 
     protected $fillable = [

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class user extends Model implements Authenticatable
 {
@@ -29,6 +30,14 @@ class user extends Model implements Authenticatable
                 $models->setAttribute($models->getKeyName(), Str::uuid()->toString());
             }
         });
+    }
+
+    public function myBook(){
+        return $this->hasMany(myBook::class);
+    }
+
+    public function event(){
+        return $this->hasMany(event::class);
     }
 
     protected $fillable = [

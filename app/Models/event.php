@@ -31,6 +31,14 @@ class event extends Model
         });
     }
 
+    public function user(){
+        return $this->belongsTo(user::class);
+    }
+
+    public function ticket(){
+        return $this->hasMany(ticket::class);
+    }
+
     protected $fillable = [
         'event_name',
         'event_address',

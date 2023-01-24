@@ -31,6 +31,14 @@ class myBook extends Model
         });
     }
 
+    public function user(){
+        return $this->belongsTo(user::class);
+    }
+
+    public function ticket(){
+        return $this->hasMany(ticket::class);
+    }
+
     protected $guarded = [];
 
 }
