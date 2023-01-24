@@ -31,8 +31,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" class="form-control search-slt" placeholder="Search Event ...">
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="width: 50%;">
+                                <input type="text"  class="form-control search-slt" placeholder="Search Event ...">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <select class="form-control search-slt" id="exampleFormControlSelect1">
