@@ -37,6 +37,10 @@ Route::get('/EventDetail', [
     EventDetailPage::class, 'view'
 ]);
 
+Route::get('/ViewAboutUs', function () {
+    return view('ViewAboutUs');
+});
+
 // for guest
 Route::middleware('guest')->group(function(){
     Route::get('/Login', [LoginPage::class, 'view'])->name('login');
