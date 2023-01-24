@@ -44,6 +44,10 @@ Route::get('/EventDetail', [
     EventDetailPage::class, 'view'
 ]);
 
+Route::get('/EventBooking', [
+    EventBookingPage::class, 'view'
+]);
+
 Route::get('/AddNewEvent', [
     AddNewEventPage::class, 'view'
 ]);
