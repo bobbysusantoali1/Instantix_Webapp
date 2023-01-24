@@ -15,7 +15,7 @@ class CreateMyBooksTable extends Migration
     public function up()
     {
         Schema::create('myBooks', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('ticket_id')->constrained();
             $table->integer('quantity');
