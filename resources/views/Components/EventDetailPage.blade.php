@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card mb-3">
             <img class="card-img-top" src="{{ url('storage/app/public/'.$data_event->event_image) }}" alt="Card image cap">
-            <form action="/EventBooking" method="post">
+            <form action="/EventDetail/customer/{{$data_event->id}}" method="post">
                 @csrf
                 <div class="card-body d-flex">
                     <div class="left" style="width: calc(100% / 3) !important">
@@ -27,10 +27,10 @@
                             <p style="margin-top: auto; margin-bottom: auto" class="card-text">Type: </p>
                             <div class="selecttype">
                                 <div class="radio">
-                                    <input type="radio" value="Regular" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                                    <input type="radio" value="Regular" class="btn-check" name="role" id="success-outlined" autocomplete="off" checked>
                                     <label style="width: 150px; margin-right: 5px;margin-left: 7px;" class="btn btn-outline-success" for="success-outlined">Regular</label>
 
-                                    <input type="radio" value="VIP" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+                                    <input type="radio" value="VIP" class="btn-check" name="role" id="danger-outlined" autocomplete="off">
                                     <label style="width: 150px" class="btn btn-outline-danger" for="danger-outlined">VIP</label>
                                 </div>
                                 <div class="price d-flex">

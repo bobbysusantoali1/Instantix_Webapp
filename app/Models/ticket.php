@@ -31,7 +31,7 @@ class ticket extends Model
         });
     }
 
-    public function user(){
+    public function event(){
         return $this->belongsTo(event::class);
     }
 

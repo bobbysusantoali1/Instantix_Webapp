@@ -11,10 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class AddNewEventPage extends Controller
 {
     public function view(){
-        $data = event::all();
         return view('Components.AddNewEventPage', [
-            'title' => 'AddNewEvent',
-            'data' => $data
+            'title' => 'AddNewEvent'
         ]);
     }
 

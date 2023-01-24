@@ -6,12 +6,12 @@
             <img class="card-img-top" src="{{ asset('event.png') }}" alt="Card image cap">
             <div class="card-body d-flex">
                 <div class="left" style="width: calc(100% / 3) !important">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">artist: </p>
-                    <p class="card-text">penyelenggara: </p>
-                    <p class="card-text">lokasi: </p>
-                    <p class="card-text">tanggal: </p>
-                    <p class="card-text">jam: </p>
+                    <h5 class="card-title">{{ $data->event_name }}</h5>
+                    <p class="card-text">artist: {{ $data->event_artist }}</p>
+                    <p class="card-text">penyelenggara: {{ $data->user->full_name }}</p>
+                    <p class="card-text">lokasi: {{ $data->event_address }}</p>
+                    <p class="card-text">tanggal: {{ $data->event_date }}</p>
+                    <p class="card-text">jam: {{ $data->event_start_time }} - {{ $data->event_end_time }}</p>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                         <h3>Type</h3>
                     </div>
                     <div class="w-50 text-center">
-                        <h3>Regular</h3>
+                        <h3>{{ $data->type }}</h3>
                     </div>
                 </div>
                 <div class="d-flex">
@@ -33,12 +33,12 @@
                         <h3>Price</h3>
                     </div>
                     <div class="w-50 text-center">
-                        <h3>Rp100.000,-</h3>
+                        <h3>{{ $data->price }}</h3>
                     </div>
                 </div>
                 <div class="d-flex">
                     <div class="w-50">
-                        <h3>Quantity</h3>
+                        <h3>{{ $data->quantity }}</h3>
                     </div>
                     <div class="w-50 text-center">
                         <h3>1</h3>
@@ -47,9 +47,9 @@
             </div>
             <div class="text-center">
                 <h1>Total Price</h1>
-                <h2>Rp100.000,-</h2>
+                <h2>{{ $data->quantity*$data->price }}</h2>
             </div>
-            <form class="d-flex justify-content-between" action="#" method="POST">
+            <form class="d-flex justify-content-between" action="/Purchase" method="POST">
                 <a href="/HomePage" type="submit" class="btn btn-danger w-50 m-3 fs-3">Cancel</a>
                 <button type="submit" class="btn bg-darkblue text-white w-50 m-3 fs-3">Purchase</button>
             </form>

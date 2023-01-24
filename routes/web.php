@@ -49,10 +49,8 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     // for customer
     Route::middleware('customer')->group(function(){
-        Route::post('/EventBooking', [
-            EventBookingPage::class, 'view'
-        ]);
-
+        Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view']);
+        Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view']);
     });
 
     // for EO
