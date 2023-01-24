@@ -9,7 +9,7 @@
           <p class="card-text">Location: {{ $event->event_location }}</p>
           <p class="card-text">Date: {{ $event->event_date }} </p>
           <p class="card-text">Time: {{ date("H:i", strtotime($event->event_start_time)).' - '.date("H:i", strtotime($event->event_end_time)) }} </p>
-          <a href="/EventDetail/customer/{{ $event->id }}" class="btn btn-danger">Detail Event</a>
+          <a href="{{ route('view-event', ['id' => $event->id]) }}" class="btn btn-danger">Detail Event</a>
         </div>
     </div>
     @endforeach

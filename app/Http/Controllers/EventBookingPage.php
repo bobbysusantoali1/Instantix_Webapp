@@ -9,9 +9,16 @@ use App\Models\myBook;
 
 class EventBookingPage extends Controller
 {
-    public function view(Request $request, $id){
+    public function view($id){
+        $event = event::find($id);
+        return view('Components.EventDetailPage', [
+            "data_event" => $event
+        ]);
+    }
+
+    public function book(Request $request, $id){
         $event = event::where('id', $id)->first();
-        $tickets = ticket::where('event_id', $id)->get();
+        $tickets = $event->ticket;
         $ticket = [];
         $ticket['category_name'] = $request->input('role');
         $ticket['quantity'] = $request->qty;
@@ -41,6 +48,11 @@ class EventBookingPage extends Controller
             'ticket_id' => $request->ticket_id,
             'quantity' => $request->quantity
         ]);
+        $ticket = ticket::where('id', $request->ticket_id)->first();
+        $curr_stock = $ticket->category_curr_stock;
+        $new_stock = $curr_stock - $request->quantity;
+        $updated_data = ['category_curr_stock' => $new_stock];
+        event::where('id', $request->event_id)->update($updated_data);
 
         return view('Components.MyBooking', [
             'title' => 'My Booking'
