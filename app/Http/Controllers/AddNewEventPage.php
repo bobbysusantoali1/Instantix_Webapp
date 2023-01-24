@@ -41,18 +41,16 @@ class AddNewEventPage extends Controller
         $Image_Url = 'images/'.str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image;
 
         $validate['event_image'] = $Image_Url;
-        $validate['organizer_id'] = Auth::user()->id;
+        $validate['user_id'] = Auth::user()->id;
         // dd($validate);
         event::create($validate);
-        $idx = event::latest()->first();
-        dd($idx);
+        // $idx = event::latest()->first();
+        // dd($idx);
 
-
-
-        if(true){
-            return redirect('/HomePage')->with('status', 'Add New Event Success');
-        }else{
-            return redirect()->back()->with('status', 'Fail');
-        }
+        // if(true){
+        //     return redirect('/HomePage')->with('status', 'Add New Event Success');
+        // }else{
+        //     return redirect()->back()->with('status', 'Fail');
+        // }
     }
 }

@@ -15,7 +15,9 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('event_id')->constrained();
+            // $table->foreignId('event_id')->constrained();
+            $table->string('event_id');
+            $table->foreign('event_id')->references('id')->on('events');
             $table->string('category_name');
             $table->string('category_desc');
             $table->integer('category_init_stock');
