@@ -41,7 +41,7 @@ class AddNewEventPage extends Controller
         $Image_Url = 'images/'.str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image;
 
         $validate['event_image'] = $Image_Url;
-        $validate['organizer_id'] = Auth::user()->id;
+        $validate['user_id'] = Auth::user()->id;
         // dd($validate);
         event::create($validate);
         $idx = event::latest()->first();

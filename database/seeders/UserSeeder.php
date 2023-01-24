@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 "email" => "riopramana@gmail.com",
-                "password" => bcrypt("Pass123"),
+                "password" => Hash::make("Pass123"),
                 "full_name" => "Rio Pramana",
                 "address" => "Jalan Kesuksesan Gang Abadi Nomor 12",
                 "gender" => "Male",
@@ -27,7 +28,7 @@ class UserSeeder extends Seeder
             ],
             [
                 "email" => "elsaangela@gmail.com",
-                "password" => bcrypt("Pass123"),
+                "password" => Hash::make("Pass123"),
                 "full_name" => "Elsa Angela",
                 "address" => "Jalan Jakarta Gang Indonesia Nomor 1",
                 "gender" => "Female",
