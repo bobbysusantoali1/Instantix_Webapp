@@ -17,9 +17,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        //dummy data dulu
         DB::table('users')->insert([
             [
-                "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                // "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                "id" => "rio",
                 "email" => "riopramana@gmail.com",
                 "password" => Hash::make("Pass123"),
                 "full_name" => "Rio Pramana",
@@ -30,7 +32,8 @@ class UserSeeder extends Seeder
                 "phone_number" => "087838208402"
             ],
             [
-                "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                // "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                "id" => "elsa",
                 "email" => "elsaangela@gmail.com",
                 "password" => Hash::make("Pass123"),
                 "full_name" => "Elsa Angela",
@@ -41,7 +44,8 @@ class UserSeeder extends Seeder
                 "phone_number" => "099938208143"
             ],
             [
-                "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                // "id" => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                "id" => "elon",
                 "email" => "elonmuskcorp@gmail.com",
                 "password" => Hash::make("Pass123"),
                 "full_name" => "Elon Musk Corporation",
