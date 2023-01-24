@@ -49,7 +49,13 @@
                 <h1>Total Price</h1>
                 <h2>{{ $ticket['quantity']*$ticket['price'] }}</h2>
             </div>
-            <form class="d-flex justify-content-between" action="/Purchase" method="POST">
+            <form class="d-flex justify-content-between" action="/EventBooking" method="POST">
+                @csrf
+                <div style="display: none">
+                    <input type="text" name="evet_id" value={{ $data->id }}>
+                    <input type="text" name="ticket_id" value={{ $ticket['id'] }}>
+                    <input type="text" name="quanity" value={{ $ticket['quantity'] }}>
+                </div>
                 <a href="/HomePage" type="submit" class="btn btn-danger w-50 m-3 fs-3">Cancel</a>
                 <button type="submit" class="btn bg-darkblue text-white w-50 m-3 fs-3">Purchase</button>
             </form>
