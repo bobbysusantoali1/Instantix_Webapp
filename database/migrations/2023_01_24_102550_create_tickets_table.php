@@ -13,11 +13,12 @@ class CreateTicketCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ticketcategories', function (Blueprint $table) {
+        Schema::create('ticket', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreign('event_id')->references('id')->on('events');
             $table->string('category_name');
-            $table->string('category_stock');
+            $table->string('category_desc');
+            $table->integer('category_init_stock');
             $table->integer('category_curr_stock');
             $table->integer('price');
             $table->timestamps();
