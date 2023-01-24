@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('content')
 <div class="d-flex flex-column align-items-center bg bg-lightblue mt-4 border rounded border-3 border-dark" style="margin-left: 20%; margin-right:20%">
-    <form method="POST" action="#">
+    <form method="POST" action="/AddNewEvent" enctype="multipart/form-data">
         @csrf
         @if ($errors->any())
             {{$errors}}
@@ -14,9 +14,9 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="EventPoster" class="col-sm-4">Poster</label>
+                <label for="EventImage" class="form-label col-sm-4">Poster</label>
                 <div class="col-sm-8">
-                    <input type="file" class="form-control" name="EventPoster" id="EventPoster">
+                    <input type="file" class="form-control" name="EventImage" id="formFile">
                 </div>
             </div>
             <div class="row mb-3">
