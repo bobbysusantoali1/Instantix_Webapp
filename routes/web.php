@@ -12,6 +12,7 @@ use App\Http\Controllers\AddNewEventPage;
 use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\ManageEventPage;
 use App\Http\Controllers\EventBookingPage;
+use App\Http\Controllers\AboutUsPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,17 +46,10 @@ Route::get('/EventDetail', [
     EventDetailPage::class, 'view'
 ]);
 
-Route::get('/EventBooking', [
-    EventBookingPage::class, 'view'
+Route::get('/AboutUs', [
+    AboutUsPage::class, 'view'
 ]);
 
-Route::get('/AddNewEvent', [
-    AddNewEventPage::class, 'view'
-]);
-
-Route::get('/ManageEvent', [
-    ManageEventPage::class, 'view'
-]);
 
 // for guest
 Route::middleware('guest')->group(function(){
