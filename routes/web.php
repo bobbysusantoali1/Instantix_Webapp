@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\AddNewEventPage;
-use App\Http\Controllers\BrowsePage;
-use App\Http\Controllers\ContactPage;
-use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
-use App\Http\Controllers\ManageEventPage;
-use App\Http\Controllers\RegisterPage;
+use App\Http\Controllers\BrowsePage;
+use App\Http\Controllers\ContactPage;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterPage;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\AddNewEventPage;
+use App\Http\Controllers\EventDetailPage;
+use App\Http\Controllers\ManageEventPage;
+use App\Http\Controllers\EventBookingPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,7 @@ Route::get('/EventBooking', [
 Route::get('/AddNewEvent', [
     AddNewEventPage::class, 'view'
 ]);
+
 Route::get('/ManageEvent', [
     ManageEventPage::class, 'view'
 ]);
