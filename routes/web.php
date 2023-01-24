@@ -51,14 +51,6 @@ Route::get('/AboutUs', [
     AboutUsPage::class, 'view'
 ]);
 
-Route::get('/ManageEvent', [
-    ManageEventPage::class, 'view'
-]);
-Route::get('/EOPage', [
-    EOPage::class, 'view'
-]);
-Route::get('/AddEvent', [AddNewEventPage::class, 'create']);
-Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert']);
 
 // for guest
 Route::middleware('guest')->group(function(){
@@ -79,9 +71,14 @@ Route::middleware('auth')->group(function(){
 
     // for EO
     Route::middleware('eventOrganizer')->group(function(){
-        Route::get('/AddNewEvent', [
-            AddNewEventPage::class, 'view'
+        Route::get('/EOPage', [
+            EOPage::class, 'view'
         ]);
+        Route::get('/AddEvent', [AddNewEventPage::class, 'create']);
+        Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert']);
+        // Route::get('/AddNewEvent', [
+        //     AddNewEventPage::class, 'view'
+        // ]);
         Route::get('/ManageEvent', [
             ManageEventPage::class, 'view'
         ]);
