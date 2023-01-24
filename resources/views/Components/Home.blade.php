@@ -65,5 +65,10 @@
         </div>
     </section>
     @include('Components.ImagePage')
+    @if (!Auth::check() || auth()->user()->role != 'customer')
+        <div class="text-end w-100">
+            <a href="/AddNewEvent" class="btn btn-danger fs-3">Add New Event</a>
+        </div>
+    @endif
 </div>
 @endsection
