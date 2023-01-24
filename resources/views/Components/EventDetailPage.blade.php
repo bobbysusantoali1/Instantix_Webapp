@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="card mb-3">
-            <img class="card-img-top" src="{{ url('storage/app/public/'.$data_event->event_image) }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ URL::asset('images/'.$data_event->event_image) }}" alt="Card image cap">
             <form action="/EventDetail/customer/{{$data_event->id}}" method="post">
                 @csrf
                 <div class="card-body d-flex">
@@ -17,7 +17,6 @@
                         @php
                             date_default_timezone_set('Asia/Jakarta');
                         @endphp
-                        <p class="card-text"><small class="text-muted">create at: {{ $data_event->created_at }}</small></p>
                     </div>
                     <div class="middle" style="width: calc(100% / 3) !important">
                         <div class="mdl text-center">
