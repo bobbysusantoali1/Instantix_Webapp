@@ -12,6 +12,7 @@ use App\Http\Controllers\AddNewEventPage;
 use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\ManageEventPage;
 use App\Http\Controllers\EventBookingPage;
+use App\Http\Controllers\AboutUsPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,10 @@ Route::get('/Contact', [
 
 Route::get('/EventDetail', [
     EventDetailPage::class, 'view'
+]);
+
+Route::get('/AboutUs', [
+    AboutUsPage::class, 'view'
 ]);
 
 
