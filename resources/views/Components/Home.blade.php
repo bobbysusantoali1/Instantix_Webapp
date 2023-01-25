@@ -18,8 +18,8 @@
                         <a href="{{ route('view-event', ['id' => $first_event->id]) }}" class="btn btn-danger">Learn More</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <img class="img-fluid" src="{{ url('storage/app/public/'.$first_event->event_image) }}" alt="{{ $first_event->event_image }}">
+                <div class="col-md-4" style="width: 700px">
+                    <img class="img-fluid"  src="{{ url('storage/app/public/'.$first_event->event_image) }}" alt="{{ $first_event->event_image }}">
                 </div>
             </div>
         </div>
