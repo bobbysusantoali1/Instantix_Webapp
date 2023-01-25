@@ -10,8 +10,6 @@
 @section('dashboard-content')
     <div class="d-flex flex-row justify-content-start align-items-start mb-2" style="border: 1px solid rgba(0, 0, 0 , 0);">
         <div style="margin: 24px 40px 20px 20px">
-            {{-- <img class="event-image" src="{{ URL::asset('images/' . $event->event_image) }}"
-                    alt="{{ $event->event_image }}"> --}}
             <img class="event-image" src="{{ url('storage/app/public/' . $event->event_image) }}"
                 alt="{{ $event->event_image }}">
         </div>
@@ -27,7 +25,7 @@
     <h2 class="mb-2">Ticket Types</h2>
     <div class="d-flex flex-column" style="gap: 20px">
         @foreach ($tickets as $ticket)
-            <div class="d-flex flex-column justify-content-start align-items-start ticket-card 
+            <div class="d-flex flex-column justify-content-start align-items-start ticket-card
                 @if ($ticket->category_curr_stock == 0) ticket-card-sold-out
                 @elseif ($ticket->category_curr_stock < 10)
                 ticket-card-low-stock @endif"
@@ -44,6 +42,18 @@
 
     <h2 class="mt-5 mb-2">Event Stats</h2>
     <canvas id="myChart"></canvas>
+    <div class="right" style="width: calc(100% / 3) !important">
+        <div class="buttons d-flex mt-4">
+            @if (auth()->user()->id == $event->user->id)
+                <a href="{{ route('view-manage-event', ['id' => $event->id]) }}" class="btn btn-danger">Manage Event</a>
+                <form action="{{ route('delete-event', ['id' => $event->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger px-3 mx-2">Delete Event</button>
+                </form>
+            @endif
+        </div>
+    </div>
 
     {{-- {{ $ticket_type }}
     {{ $ticket_sold }} --}}

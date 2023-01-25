@@ -64,7 +64,7 @@ Route::middleware('auth')->group(function(){
     // for EO
     Route::middleware('eventOrganizer')->group(function(){
         Route::prefix('dashboard')->group(function(){
-            Route::get('myEvents/{event}', [EODashboardController::class, 'eventDetail']);
+            Route::get('myEvents/{event}', [EODashboardController::class, 'eventDetail'])->name('view-eo-event');
             Route::get('myEvents', [EODashboardController::class, 'myEvents'])->name('view-my-events');
             Route::get('', function (){
                 return redirect('/dashboard/myEvents');
