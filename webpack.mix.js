@@ -34,6 +34,11 @@ mix.postCss(
     "public/css/eventOrganizer",
     []
 );
+mix.postCss(
+    "resources/css/eventOrganizer/addTicket.css",
+    "public/css/eventOrganizer",
+    []
+);
 
 mix.postCss(
     "resources/css/layouts/eventOrganizerApp.css",

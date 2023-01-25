@@ -44,7 +44,10 @@
                 <div>Stock : {{ $ticket->category_curr_stock }} / {{ $ticket->category_init_stock }}</div>
             </div>
         @endforeach
-
+    </div>
+    <div class="w-100 d-flex flex-row justify-content-end">
+        <button class="btn btn-outline-primary" onclick="window.location.href=(window.location.href + '/add-ticket')">Add
+            Ticket Type</button>
     </div>
 
     <h2 class="mt-5 mb-2">Event Stats</h2>

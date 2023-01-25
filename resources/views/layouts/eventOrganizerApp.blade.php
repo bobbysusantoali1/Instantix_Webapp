@@ -1,7 +1,7 @@
 @extends('NavigationBar.NavBar')
 
 @section('css')
-    <link rel="stylesheet" href="./../../css/layouts/eventOrganizerApp.css">
+    <link rel="stylesheet" href="/css/layouts/eventOrganizerApp.css">
     @yield('content-css')
 @endsection
 
@@ -15,7 +15,7 @@
                 <a href="/dashboard/myEvents" class="menu-link" style="text-decoration: none; color: inherit">
                     <li class="menu-item">My Events</li>
                 </a>
-                <a href="{{Route('view-add-event')}}" class="menu-link" style="text-decoration: none; color: inherit">
+                <a href="{{ Route('view-add-event') }}" class="menu-link" style="text-decoration: none; color: inherit">
                     <li class="menu-item">Add New Event</li>
                 </a>
             </ul>
