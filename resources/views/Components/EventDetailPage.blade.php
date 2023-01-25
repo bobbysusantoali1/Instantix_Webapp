@@ -37,9 +37,11 @@
                                 <div class="price d-flex">
                                     @foreach ($ticket as $item)
                                         @if ($item->category_name == 'Regular')
-                                            <p style="margin-left: 7px;" class="card-text">{{ $item->price }}</p>
+                                            <p style="margin-left: 7px;" class="card-text">Price: {{ $item->price }}</p>
+                                            <p style="margin-left: 7px;" class="card-text">Stock: {{ $item->category_curr_stock }}</p>
                                         @else
-                                            <p style="margin-left: 107px" class="card-text">{{ $item->price }}</p>
+                                            <p style="margin-left: 7px;" class="card-text">Price: {{ $item->price }}</p>
+                                            <p style="margin-left: 7px;" class="card-text">Stock: {{ $item->category_curr_stock }}</p>
                                         @endif
                                     @endforeach
                                 </div>

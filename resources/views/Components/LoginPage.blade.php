@@ -23,9 +23,9 @@
             <span></span>
             <label>Password</label>
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <a href="/ForgotPassword" class="text-decoration-none text-black">Forgot Password?</a>
-        </div>
+        </div> --}}
         @if (session('Login_Error'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ session('Login_Error') }}
