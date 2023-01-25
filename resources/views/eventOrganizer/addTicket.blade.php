@@ -12,10 +12,9 @@
         <form method="POST" action="/dashboard/myEvents/add-ticket">
             @csrf
             @if ($errors->any())
-                <div class="text-danger">
-
-                    {{ $errors->first() }}
-                </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{$errors->first()}}
+            </div>
             @endif
             <input type="hidden" name='eventId' value="{{ $event->id }}">
             <div class="mb-3">
