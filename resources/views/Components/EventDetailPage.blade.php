@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <div class="card mb-3">
-            <img class="card-img-top" src="{{asset('storage/images/'.$data_event->event_image)}}" alt="Card image cap">
-            {{-- <img class="card-img-top" src="{{ URL::asset('images/'.$data_event->event_image) }}" alt="Card image cap"> --}}
+            {{-- <img class="card-img-top" src="{{asset('storage/images/'.$data_event->event_image)}}" alt="Card image cap"> --}}
+            <img class="card-img-top" src="{{ URL::asset('images/'.$data_event->event_image) }}" alt="Card image cap">
             <form action={{ route('view-book-detail', ['id' => $data_event->id]) }} method="post">
                 @csrf
                 <div class="card-body d-flex">
