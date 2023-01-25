@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EditProfileController extends Controller
 {
     public function view(){
-        return view('pages.profile.view-edit-profile');
+        return view('Components.ViewEditProfile', [
+            'title' => 'Edit Profile',
+            'user' => Auth::user()
+        ]);
     }
 
     public function edit(Request $request){
