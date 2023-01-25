@@ -14,16 +14,16 @@
                         <a class="nav-link {{ (\Request::route()->getName() == 'view-browse') ? 'active' : '' }}" href="{{Route('view-browse')}}">Browse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ (\Request::route()->getName() == 'view-about-us') ? 'active' : '' }}" href="{{Route('view-about-us')}}">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ (\Request::route()->getName() == 'contact-form') ? 'active' : '' }}" href="{{Route('contact-form')}}">Contact</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link {{ (\Request::route()->getName() == 'view-book') ? 'active' : '' }}" href="{{Route('view-book')}}">View Tickets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ (\Request::route()->getName() == 'view-profile') ? 'active' : '' }}" href="{{Route('view-profile')}}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ (\Request::route()->getName() == 'view-about-us') ? 'active' : '' }}" href="{{Route('view-about-us')}}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ (\Request::route()->getName() == 'contact-form') ? 'active' : '' }}" href="{{Route('contact-form')}}">Contact</a>
                     </li>
                     @if (Auth::check())
                         <form action="/Logout" method="POST">
