@@ -19,10 +19,10 @@
             <p class="m-1 card-text ">Date of Birth: {{ $user->dob }}</p>
             <p class="m-1 card-text ">Phone: {{ $user->phone_number }}</p>
         </div>
-        <div class="container my-3">
-            @if (!$user->role == 'eventOrganizer')
+        <div class="container my-3 d-flex justify-content-evenly">
+            @if ($user->role == 'customer')
                 <a href="{{ route('view-edit-profile') }}" class="btn btn-primary px-4">Edit Profile</a>
-            @endif
+                @endif
             <a href="{{ route('view-edit-password') }}" class="btn btn-outline-primary px-4">Edit Password</a>
         </div>
     </div>

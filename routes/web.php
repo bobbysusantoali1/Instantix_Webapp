@@ -56,8 +56,8 @@ Route::middleware('auth')->group(function(){
         Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view_book'])->name('view-book-detail');
         Route::post('/EventBooking', [EventBookingPage::class, 'purchase'])->name('purchase-ticket');
         Route::get('/MyBooking', [MyBookingPage::class, 'view'])->name('view-book');
-        Route::get('/MyProfile/edit-profile', [ProfileController::class, 'viewEditProfile'])->name('view-edit-profile');
-        Route::patch('/MyProfile/edit-profile', [ProfileController::class, 'editProfile'])->name('edit-profile');
+        Route::get('/MyProfile/edit-profile', [EditProfileController::class, 'view'])->name('view-edit-profile');
+        Route::patch('/MyProfile/edit-profile', [EditProfileController::class, 'edit'])->name('edit-profile');
     });
 
     // for EO
@@ -78,8 +78,8 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/Logout', [LoginPage::class, 'Logout'])->name('logout');
     Route::get('/MyProfile', [ProfileController::class, 'view'])->name('view-profile');
-    Route::get('/MyProfile/edit-password', [ProfileController::class, 'viewEditPassword'])->name('view-edit-password');
-    Route::patch('/MyProfile/edit-password', [ProfileController::class, 'editPassword'])->name('edit-password');
+    Route::get('/MyProfile/edit-password', [EditPasswordController::class, 'view'])->name('view-edit-password');
+    Route::patch('/MyProfile/edit-password', [EditPasswordController::class, 'edit'])->name('edit-password');
 });
 
 // get url image without storage:link
