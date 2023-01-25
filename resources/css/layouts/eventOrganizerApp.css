@@ -36,7 +36,7 @@
 }
 
 body {
-    height: 400vh;
+    min-height: 100vh;
     background-color: #e5e5f7;
     opacity: 1;
     background-image: radial-gradient(var(--lightgreen) 0.5px, transparent 0.5px), radial-gradient(var(--darkblue) 0.5px, var(--lightgreen) 0.5px);
