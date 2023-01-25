@@ -9,7 +9,7 @@
     @else
         @if (!Auth::check() || auth()->user()->role != 'eventOrganizer')
         <div class="card mb-3 p-3">
-            <div class="row g-0">
+            <div class="row g-0 d-flex flex-row">
                 <div class="col-md-8">
                     <div class="card-body d-flex flex-column justify-content-between py-5 my-5">
                         <h1 class="card-title"> Featured Event </h1>
@@ -18,7 +18,7 @@
                         <a href="{{ route('view-event', ['id' => $first_event->id]) }}" class="btn btn-danger">Learn More</a>
                     </div>
                 </div>
-                <div class="col-md-4" style="width: 700px">
+                <div class="col-md-4">
                     <img class="img-fluid"  src="{{ url('storage/app/public/'.$first_event->event_image) }}" alt="{{ $first_event->event_image }}">
                 </div>
             </div>
