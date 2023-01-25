@@ -19,16 +19,16 @@ class EditPasswordController extends Controller
         $rules = ['password' => 'required|min:5|max:20'];
         $curr_user = Auth::user();
         if (!Hash::check($request->old_password, $curr_user->password)){
-            return redirect()->route('view-edit-password')->with('alert', "The old password does not match our record");
-        } else if ($request->old_password != $request->new_password) {
+            return redirect()->route('view-edit-password')->with(['alert' => "The old password does not match our record"]);
+        } else if ($request->old_password != $request->password) {
             $validatedData = $request->validate($rules);
             $validatedData['password'] = Hash::make($validatedData['password']);
         } else {
-            return redirect()->route('view-edit-password')->with('alert', "The new password can not be the same as the old password");
+            return redirect()->route('view-edit-password')->with(['alert' => "The new password can not be the same as the old password"]);
         }
 
         user::where('id', $curr_user->id)->update($validatedData);
 
-        return redirect()->route('view-profile')->with('alert', "Update Succesful!");
+        return redirect()->route('view-profile')->with(['alert' => "Update Succesful!"]);
     }
 }

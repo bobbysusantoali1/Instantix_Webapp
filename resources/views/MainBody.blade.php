@@ -4,7 +4,13 @@
     <div class="content bg-lightgreen p-5">
         @yield('content')
     </div>
-
+    <script>
+        var msg = '{{Session::get('alert')}}';
+        var exist = '{{Session::has('alert')}}';
+        if (exist) {
+            alert(msg);
+        }
+    </script>
     @if ( (Route::is('login', 'index_register')) ? false:true)
         <footer class="bg-darkblue text-white p-3">
             <div class="m-5">
