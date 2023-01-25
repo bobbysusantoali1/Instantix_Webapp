@@ -6,7 +6,7 @@
         @method('patch')
         @csrf
         @if ($errors->any())
-            {{$errors}}
+            {{$errors->first()}}
         @endif
             <div class="row mt-4 mb-3">
                 <label for="event_name" class="col-sm-4 font-weight-bold">Nama Event</label>
