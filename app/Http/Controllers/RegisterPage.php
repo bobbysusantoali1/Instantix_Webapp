@@ -29,7 +29,7 @@ class RegisterPage extends Controller
         $validate['password'] = Hash::make($validate['password']);
         unset($validate['confirmPassword']);
         if(user::create($validate)){
-            return redirect('/Login')->with('status', 'Register Success');
+            return redirect('login')->with('status', 'Register Success');
         }else{
             return redirect()->back()->with('status', 'Register Fail');
         }
