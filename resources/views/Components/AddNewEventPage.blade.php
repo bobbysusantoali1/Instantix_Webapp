@@ -89,7 +89,7 @@
         </div>
         <a id="back_btn" class="btn btn-danger w-100 mt-3 text-white" onclick="location.href='{{ url()->previous() }}'">Back</a>
         <div class="mb-4 d-flex justify-content-center">
-            <button type="submit" class="btn bg-blue">Create</button>
+            <button type="submit" class="btn text-white bg-success w-100 mt-2">Create</button>
         </div>
     </form>
 </div>
