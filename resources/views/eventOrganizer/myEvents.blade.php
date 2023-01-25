@@ -15,8 +15,9 @@
                 {{ sprintf('%02d', $loop->index + 1) }}
             </div>
             <div style="margin: 24px 40px 20px 20px">
-                <img class="event-image" src="{{ URL::asset('images/' . $event->event_image) }}"
-                    alt="{{ $event->event_image }}">
+                {{-- <img class="event-image" src="{{ URL::asset('images/' . $event->event_image) }}"
+                    alt="{{ $event->event_image }}"> --}}
+                    <img class="card-img-top" src="{{ url('storage/app/public/'.$event->event_image) }}" alt="{{ $event->event_image }}">
             </div>
             <div class="d-flex flex-column justify-content-start align-items-start" style="gap: 12px; margin-top:24px">
                 <h2>{{ $event->event_name }}</h2>
