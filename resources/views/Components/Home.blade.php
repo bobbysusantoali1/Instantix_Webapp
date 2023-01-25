@@ -17,7 +17,8 @@
             </div>
             <div class="col-md-4">
               {{-- <img src="{{asset('storage/images/'.$first_event->event_image)}}" class="img-fluid rounded-start" alt="{{ $first_event->event_image }}"> --}}
-              <img src="{{ URL::asset('images/'.$first_event->event_image) }}" class="img-fluid rounded-start" alt="{{ $first_event->event_image }}">
+              {{-- <img src="{{ URL::asset('images/'.$first_event->event_image) }}" class="img-fluid rounded-start" alt="{{ $first_event->event_image }}"> --}}
+              <img class="card-img-top" src="{{ url('storage/app/public/'.$first_event->event_image) }}" alt="{{ $first_event->event_image }}">
             </div>
         </div>
     </div>

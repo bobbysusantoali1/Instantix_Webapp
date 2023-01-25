@@ -42,8 +42,8 @@ class AddNewEventPage extends Controller
         $Ext_Image = $image->clientExtension();
 
         Storage::putFileAs('public/images',$image, str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image);
-        $Image_Url = str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image;
-        // $Image_Url = 'images/'.str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image;
+        // $Image_Url = str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image;
+        $Image_Url = 'images/'.str_replace(' ', '', $validate['event_name']).'.'.$Ext_Image;
 
         $validate['event_image'] = $Image_Url;
         $validate['user_id'] = Auth::user()->id;

@@ -4,7 +4,8 @@
     <div class="card m-2" style="width: 18rem;">
 
         {{-- <img class="card-img-top" src="{{asset('storage/images/'.$event->event_image)}}" alt="{{ $event->event_image }}"> --}}
-        <img class="card-img-top" src="{{ URL::asset('images/'.$event->event_image) }}" alt="{{ $event->event_image }}">
+        {{-- <img class="card-img-top" src="{{ URL::asset('images/'.$event->event_image) }}" alt="{{ $event->event_image }}"> --}}
+        <img class="card-img-top" src="{{ url('storage/app/public/'.$event->event_image) }}" alt="{{ $event->event_image }}">
         <div class="card-body">
           <h5 class="card-title">{{ $event->event_name }}</h5>
           <p class="card-text">Artist: {{ $event->event_artist }}</p>
