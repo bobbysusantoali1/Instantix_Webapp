@@ -39,6 +39,6 @@ class EventBookingPage extends Controller
         $updated_data = ['category_curr_stock' => $new_stock];
         ticket::where('id', $request->ticket_id)->update($updated_data);
 
-        return redirect('/MyBooking');
+        return redirect()->route('view-book')->with('alert', 'Successfully bought tickets!');
     }
 }
