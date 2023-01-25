@@ -10,19 +10,23 @@
             </button>
             <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav align-items-center text-dark fw-bold fs-5">
-                    @if (Auth::user()->role == 'eventOrganizer')
-                        <li class="nav-item">
-                            <a class="nav-link {{ (\Request::route()->getName() == 'view-my-events') ? 'active' : '' }}" href="{{Route('view-dashboard')}}">Dashboard</a>
-                        </li>
-                    @endif
+                    @auth
+                        @if (Auth::user()->role == 'eventOrganizer')
+                            <li class="nav-item">
+                                <a class="nav-link {{ (\Request::route()->getName() == 'view-my-events') ? 'active' : '' }}" href="{{Route('view-dashboard')}}">Dashboard</a>
+                            </li>
+                        @endif
+                    @endauth
                     <li class="nav-item">
                         <a class="nav-link {{ (\Request::route()->getName() == 'view-browse') ? 'active' : '' }}" href="{{Route('view-browse')}}">Browse</a>
                     </li>
-                    @if (Auth::user()->role == 'customer')
-                        <li class="nav-item">
-                            <a class="nav-link {{ (\Request::route()->getName() == 'view-book') ? 'active' : '' }}" href="{{Route('view-book')}}">View Tickets</a>
-                        </li>
-                    @endif
+                    @auth
+                        @if (Auth::user()->role == 'customer')
+                            <li class="nav-item">
+                                <a class="nav-link {{ (\Request::route()->getName() == 'view-book') ? 'active' : '' }}" href="{{Route('view-book')}}">View Tickets</a>
+                            </li>
+                        @endif
+                    @endauth
                     <li class="nav-item">
                         <a class="nav-link {{ (\Request::route()->getName() == 'view-profile') ? 'active' : '' }}" href="{{Route('view-profile')}}">Profile</a>
                     </li>
