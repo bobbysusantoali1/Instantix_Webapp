@@ -20,6 +20,9 @@
                         <a class="nav-link @yield('active_contact')" href="{{Route('contact-form')}}">Contact</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{Route('view-book')}}">View Tickets</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{Route('view-profile')}}">Profile</a>
                     </li>
                     @if (Auth::check())
