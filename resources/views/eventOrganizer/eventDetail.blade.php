@@ -22,10 +22,10 @@
                 <div>Date: {{ $event->event_date }}</div>
                 <div>Time: {{ $event->event_start_time . ' - ' . $event->event_end_time }}</div>
             </div>
-            <div class="d-flex flex-row justify-content-end align-items-center w-100" style="gap: 12px">
+            {{-- <div class="d-flex flex-row justify-content-end align-items-center w-100" style="gap: 12px">
                 <button type="button" class="btn btn-outline-danger">Delete</button>
                 <button type="button" class="btn btn-primary">Edit</button>
-            </div>
+            </div> --}}
         </div>
     </div>
 
