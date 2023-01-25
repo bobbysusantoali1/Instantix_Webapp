@@ -23,10 +23,10 @@ class EditProfileController extends Controller
             'address' => ['required','min:3'],
             'dob' => ['required'],
             'gender' => ['required'],
-            'confirmPassword' => ['required', 'min:5','max:20']
+            'password' => ['required', 'min:5','max:20']
         ];
 
-        if (!Hash::check('confirmPassword', $curr_user->password)) {
+        if (!Hash::check($request->password, $curr_user->password)) {
             return redirect()->route('view-edit-profile')->with('alert', "Password is not correct!");
         }
 

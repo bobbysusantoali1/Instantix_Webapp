@@ -42,8 +42,8 @@
             </div>
             <div class="row">
                 <div class="col-6 p-3">
-                    <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
+                    <label for="password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" name="password" id="password">
                 </div>
             </div>
             @if ($errors->any())
