@@ -30,12 +30,14 @@ class AddNewEventPage extends Controller
 
         $validateticketregular = $request->validate([
             'EventRegularTicket' => ['required','numeric','min:10'],
-            'EventRegularPrice' => ['required','numeric','min:10000']
+            'EventRegularPrice' => ['required','numeric','min:10000'],
+            'regular_ticket_desc' => ['required', 'min:5']
         ]);
 
         $validateticketvip = $request->validate([
             'EventVIPTicket' => ['required','numeric','min:10'],
-            'EventVIPPrice' => ['required','numeric','min:20000']
+            'EventVIPPrice' => ['required','numeric','min:20000'],
+            'vip_ticket_desc' => ['required', 'min:5']
         ]);
 
         $image = $validate['event_image'];
@@ -53,7 +55,7 @@ class AddNewEventPage extends Controller
         $init = new ticket();
         $init['event_id'] = $idx->id;
         $init['category_name'] = 'Regular';
-        $init['category_desc'] = 'Hello iam under water';
+        $init['category_desc'] = $validateticketregular['regular_ticket_desc'];
         $init['category_init_stock'] = $validateticketregular['EventRegularTicket'];
         $init['category_curr_stock'] = $validateticketregular['EventRegularTicket'];
         $init['price'] = $validateticketregular['EventRegularPrice'];
@@ -62,7 +64,7 @@ class AddNewEventPage extends Controller
         $init1 = new ticket();
         $init1['event_id'] = $idx->id;
         $init1['category_name'] = 'VIP';
-        $init1['category_desc'] = 'Hello iam under water exstra';
+        $init1['category_desc'] = $validateticketvip['vip_ticket_desc'];
         $init1['category_init_stock'] = $validateticketvip['EventVIPTicket'];
         $init1['category_curr_stock'] = $validateticketvip['EventVIPTicket'];
         $init1['price'] = $validateticketvip['EventVIPPrice'];

@@ -66,6 +66,15 @@
                 <input type="number" placeholder="1" min="1" class="form-control" name="EventVIPTicket" id="EventVIPTicket" value="{{ old('EventVIPTicket') }}">
             </div>
         </div>
+        <div class="row mb-3">
+            <label for="EventTicketDesc" class="col-sm-4">Ticket Description</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="regular_ticket_desc" id="regular_ticket_desc" value="{{ old('regular_ticket_desc') }}">
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="vip_ticket_desc" id="vip_ticket_desc" value="{{ old('vip_ticket_desc') }}">
+            </div>
+        </div>
 
         <div class="row mb-3">
             <label for="EventPrice" class="col-sm-4">Price</label>
@@ -74,7 +83,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Rp.</span>
                     </div>
-                    <input type="number" min="10000" class="form-control" name="EventRegularPrice" id="EventRegularPrice" placeholder="10000"  value="{{ old('EventRegularPrice') }}">
+                    <input type="number" min="1" class="form-control" name="EventRegularPrice" id="EventRegularPrice" placeholder="input price here"  value="{{ old('EventRegularPrice') }}">
                 </div>
 
             </div>
@@ -83,7 +92,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Rp.</span>
                     </div>
-                    <input type="number" min="20000" class="form-control" name="EventVIPPrice" id="EventVIPPrice" placeholder="20000" value="{{ old('EventVIPPrice') }}">
+                    <input type="number" min="1" class="form-control" name="EventVIPPrice" id="EventVIPPrice" placeholder="input price here" value="{{ old('EventVIPPrice') }}">
                 </div>
             </div>
         </div>
