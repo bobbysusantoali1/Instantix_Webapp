@@ -34,7 +34,7 @@
                     @if (Auth::check())
                         <form action="/Logout" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-danger"><span>{{ auth()->user()->full_name}}</span></button>
+                            <button type="submit" class="btn btn-danger"><span>Log Out From {{ auth()->user()->full_name}}</span></button>
                         </form>
                     @else
                         <li class="nav-item">
