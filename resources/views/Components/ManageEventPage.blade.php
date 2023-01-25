@@ -117,7 +117,7 @@
                     <a id="back_btn" class="btn btn-danger text-white" onclick="location.href='{{ url()->previous() }}'">Cancel</a>
                 </div>
                 <div class="mb-4 d-flex">
-                    <button type="submit" class="btn bg-blue">Update</button>
+                    <button type="submit" class="btn btn-success">Update</button>
                 </div>
             </div>
     </form>
