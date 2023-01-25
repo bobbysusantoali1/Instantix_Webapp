@@ -28,12 +28,6 @@ class EventBookingPage extends Controller
     }
 
     public function purchase(Request $request){
-        // $data = new myBook();
-        // $data['user_id'] = $request->evet_id;
-        // $data['ticket_id'] = $request->ticket_id;
-        // $data['quantity'] = $request->quanity;
-        // $data->save();
-
         myBook::create([
             'user_id' => $request->user_id,
             'ticket_id' => $request->ticket_id,
@@ -43,7 +37,7 @@ class EventBookingPage extends Controller
         $curr_stock = $ticket->category_curr_stock;
         $new_stock = $curr_stock - $request->quantity;
         $updated_data = ['category_curr_stock' => $new_stock];
-        event::where('id', $request->event_id)->update($updated_data);
+        ticket::where('id', $request->ticket_id)->update($updated_data);
 
         return view('Components.MyBooking', [
             'title' => 'My Booking'

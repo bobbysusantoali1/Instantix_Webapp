@@ -57,7 +57,7 @@
                     <input type="text" name="user_id" value={{ Auth::user()->id }}>
                     <input type="text" name="ticket_id" value={{ $ticket['id'] }}>
                     <input type="text" name="event_id" value={{ $data_event['id'] }}>
-                    <input type="text" name="quantity" value={{ $ticket['quantity'] }}>
+                    <input type="text" name="quantity" value={{ $qty }}>
                 </div>
                 <a onclick="location.href='{{ url()->previous() }}'" type="submit" class="btn btn-danger w-50 m-3 fs-3">Cancel</a>
                 <button type="submit" class="btn bg-darkblue text-white w-50 m-3 fs-3">Purchase</button>

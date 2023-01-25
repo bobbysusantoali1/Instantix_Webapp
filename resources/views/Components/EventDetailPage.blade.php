@@ -20,7 +20,7 @@
                             date_default_timezone_set('Asia/Jakarta');
                         @endphp
                     </div>
-                    <div class="middle" style="width: calc(100% / 3) !important">
+                    <div class="middle ms-5" style="width: calc(100% / 3) !important">
                         <div class="mdl text-center">
                             <h5 class="card-title">Ticket</h5>
                         </div>
