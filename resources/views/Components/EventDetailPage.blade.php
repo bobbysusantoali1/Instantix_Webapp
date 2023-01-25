@@ -90,7 +90,9 @@
                     @else
                     <div class="right" style="width: calc(100% / 3) !important">
                         <div class="buttons d-flex mt-4" style="justify-content: center">
-                            <a href="{{ route('view-manage-event', ['id' => $data_event->id]) }}" class="btn btn-danger fs-3">Manage Event</a>
+                            @if (auth()->user()->id == $data_event->user->id)
+                                <a href="{{ route('view-manage-event', ['id' => $data_event->id]) }}" class="btn btn-danger fs-3">Manage Event</a>
+                            @endif
                         </div>
                     </div>
                     @endif
