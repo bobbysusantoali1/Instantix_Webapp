@@ -12,6 +12,7 @@ use App\Http\Controllers\AddNewEventPage;
 use App\Http\Controllers\EventDetailPage;
 use App\Http\Controllers\ManageEventPage;
 use App\Http\Controllers\EventBookingPage;
+use App\Http\Controllers\MyBookingPage;
 use App\Http\Controllers\AboutUsPage;
 use App\Http\Controllers\EOPage;
 use App\Http\Controllers\EODashboardController;
@@ -53,6 +54,7 @@ Route::middleware('auth')->group(function(){
     Route::middleware('customer')->group(function(){
         Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view_book'])->name('view-book-detail');
         Route::post('/EventBooking', [EventBookingPage::class, 'purchase'])->name('purchase-ticket');
+        Route::get('/MyBooking', [MyBookingPage::class, 'view'])->name('view-book');
     });
 
     // for EO
