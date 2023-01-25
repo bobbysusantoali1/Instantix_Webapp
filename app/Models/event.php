@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -39,11 +40,12 @@ class event extends Model
         return $this->hasMany(ticket::class);
     }
 
-    public function scopeSearching($query, array $search){
-        // when collection and null coalescing operator
+    public function scopeSearching($query, array $search, array $location){
         $query->when($search['search'] ?? false, function($query, $search){
-            return $query->where('event_name', 'like', '%' . $search . '%');
-        });
+                    return $query->where('event_name', 'like', '%' . $search . '%');
+                })->when($location['selected'] ?? false, function($query, $location){
+                    return $query->where('event_location', $location);
+                });
     }
 
     protected $fillable = [
