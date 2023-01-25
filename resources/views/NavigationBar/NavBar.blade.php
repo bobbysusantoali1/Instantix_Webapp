@@ -20,10 +20,10 @@
                         <a class="nav-link @yield('active_contact')" href="{{Route('contact-form')}}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{Route('view-book')}}">View Tickets</a>
+                        <a class="nav-link @yield('active_ticket')" href="{{Route('view-book')}}">View Tickets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{Route('view-profile')}}">Profile</a>
+                        <a class="nav-link @yield('active_profile')" href="{{Route('view-profile')}}">Profile</a>
                     </li>
                     @if (Auth::check())
                         <form action="/Logout" method="POST">
@@ -37,7 +37,7 @@
                     @endif
                 </ul>
             </div>
-    </div>  
+    </div>
 </nav>
 @yield('Body')
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

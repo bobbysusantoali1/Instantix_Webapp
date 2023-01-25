@@ -27,7 +27,8 @@ class MyBookingPage extends Controller
             'title' => 'My Booking',
             'bookings' => $bookings,
             'tickets' => $tickets,
-            'events' => $events
+            'events' => $events,
+            'active' => 'ticket'
         ]);
     }
 }

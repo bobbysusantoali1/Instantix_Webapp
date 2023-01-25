@@ -11,7 +11,8 @@ class ProfileController extends Controller
         $curr_user = Auth::user();
         return view('Components.MyProfile',[
             'title' => 'My Profile',
-            'user' => $curr_user
+            'user' => $curr_user,
+            'active' => 'profile'
         ]);
     }
 }

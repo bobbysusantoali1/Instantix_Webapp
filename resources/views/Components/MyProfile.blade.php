@@ -1,5 +1,6 @@
 @extends('MainBody')
 @section('title', $title)
+@section('active_profile', ($active == 'profile') ? 'active' : '')
 @section('content')
 <div class="container bg-light">
     <div class="card-body d-flex align-items-center flex-column">

@@ -1,5 +1,6 @@
 @extends('MainBody')
 @section('title', $title)
+@section('active_ticket', ($active == 'ticket') ? 'active' : '')
 @section('content')
 <div class="row p-5 d-flex justify-content-center">
     @for ($i = 0; $i < $bookings->count(); $i++)
