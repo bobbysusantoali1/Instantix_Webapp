@@ -3,6 +3,12 @@
     padding: 20px 20px 20px 20px;
 }
 
+.ticket-card:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
 .ticket-card-low-stock {
     border-left: 12px solid var(--bs-warning);
 }

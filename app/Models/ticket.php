@@ -36,7 +36,7 @@ class ticket extends Model
     }
 
     public function myBook(){
-        return $this->belongsToMany(myBook::class);
+        return $this->hasMany(myBook::class);
     }
 
     protected $fillable = [

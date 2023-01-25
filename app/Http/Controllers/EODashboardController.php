@@ -26,10 +26,22 @@ class EODashboardController extends Controller
 
         $tickets = $event->ticket;
 
+        $ticket_sold = [];
+        $ticket_type = [];
+
+        foreach ($tickets as $ticket){
+            $ticket_type[] = $ticket->category_name;
+            $ticket_sold[] = $ticket->myBook->sum('quantity');
+        }
+
         $retVal = [
             'event' => $event,
-            'tickets' => $tickets
+            'tickets' => $tickets,
+            'ticket_type' => $ticket_type,
+            'ticket_sold' => $ticket_sold
         ];
+
+        // dd($retVal);
 
         return view('eventOrganizer.eventDetail', $retVal);
     }

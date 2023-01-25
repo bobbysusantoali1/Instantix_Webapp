@@ -42,4 +42,44 @@
 
     </div>
 
+    <h2 class="mt-5 mb-2">Event Stats</h2>
+    <canvas id="myChart"></canvas>
+
+    {{-- {{ $ticket_type }}
+    {{ $ticket_sold }} --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        var labels = @json($ticket_type);
+        var quantity = @json($ticket_sold);
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '# of Ticket Sold',
+                    data: quantity,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            min: 0, // it is for ignoring negative step.
+                            beginAtZero: true,
+                            callback: function(value, index, values) {
+                                if (Math.floor(value) === value) {
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 @endsection
