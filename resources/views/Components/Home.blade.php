@@ -12,15 +12,14 @@
             <div class="row g-0" style="height: 100%; width: 100%">
                 <div class="col-md-8" style="max-width: 420px; margin-top: 50px;">
                     <div class="card-body">
-                    <h3 class="card-title">{{ $first_event->event_name }}</h3>
-                    <p class="card-text">{{ $first_event->event_desc }}</p>
-                    <a href="/EventDetail/customer/{{ $first_event->id }}" style="margin-top: 200px;"class="btn btn-danger">Learn More</a>
-                </div>
+                        <h1 class="card-title"> Featured Event </h1>
+                        <h3 class="card-text">{{ $first_event->event_name }}</h3>
+                        <p class="card-text">{{ $first_event->event_desc }}</p>
+                        <a href="{{ route('view-event', ['id' => $first_event->id]) }}" class="btn btn-danger">Learn More</a>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                {{-- <img src="{{asset('storage/images/'.$first_event->event_image)}}" class="img-fluid rounded-start" alt="{{ $first_event->event_image }}"> --}}
-                {{-- <img src="{{ URL::asset('images/'.$first_event->event_image) }}" class="img-fluid rounded-start" alt="{{ $first_event->event_image }}"> --}}
-                <img class="card-img-top" src="{{ url('storage/app/public/'.$first_event->event_image) }}" alt="{{ $first_event->event_image }}">
+                    <img class="img-fluid" src="{{ url('storage/app/public/'.$first_event->event_image) }}" alt="{{ $first_event->event_image }}">
                 </div>
             </div>
         </div>
