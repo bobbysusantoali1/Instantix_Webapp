@@ -28,11 +28,9 @@
             <button type="button" class="btn btn-info" style="font-size: 20pt">
                 Klik Di Sini Untuk Melihat Lokasi Kami
             </button>
-
         </a>
     </div>
 </body>
 </html>
-{{-- @include('Components.ImagePage') --}}
 </section>
 @endsection
