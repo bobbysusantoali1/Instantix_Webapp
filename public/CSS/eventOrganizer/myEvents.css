@@ -13,3 +13,21 @@
     box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, .1);
     cursor: pointer;
 }
+
+.event-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.event-card:hover {
+    text-decoration: none;
+    color: var(--red);
+}
+
+.event-card--number {
+    width: 80px; font-weight: bold; font-size: 4rem; color: #444; text-decoration:underline
+}
+
+.event-card:hover .event-card--number {
+    color: var(--red)
+}

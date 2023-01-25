@@ -1,0 +1,20 @@
+.ticket-card {
+    border-left: 12px solid var(--bs-success);
+    padding: 20px 20px 20px 20px;
+}
+
+.ticket-card-low-stock {
+    border-left: 12px solid var(--bs-warning);
+}
+
+.ticket-card-sold-out {
+    border-left: 12px solid var(--bs-danger);
+}
+
+.event-image {
+    display: block;
+    max-width: 320px;
+    max-height: 320px;
+    width: auto;
+    height: auto;
+}

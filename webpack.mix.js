@@ -24,6 +24,11 @@ mix.postCss(
     "public/css/eventOrganizer",
     []
 );
+mix.postCss(
+    "resources/css/eventOrganizer/eventDetail.css",
+    "public/css/eventOrganizer",
+    []
+);
 
 mix.postCss(
     "resources/css/layouts/eventOrganizerApp.css",

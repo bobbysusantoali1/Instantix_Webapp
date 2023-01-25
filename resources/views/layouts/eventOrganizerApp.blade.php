@@ -12,11 +12,9 @@
                 Dashboard
             </div>
             <ul class="menu">
-                <li class="menu-item">My Events</li>
-                <li class="menu-item">Menu 2</li>
-                <li class="menu-item">Menu 3</li>
-                <li class="menu-item">Menu 4</li>
-                <li class="menu-item">Menu 5</li>
+                <a href="/dashboard/myEvents" class="menu-link" style="text-decoration: none; color: inherit">
+                    <li class="menu-item">My Events</li>
+                </a>
             </ul>
         </div>
         <div class="dashboard-content">
