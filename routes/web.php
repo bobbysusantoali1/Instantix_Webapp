@@ -4,6 +4,7 @@ use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
 use App\Http\Controllers\BrowsePage;
 use App\Http\Controllers\ContactPage;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterPage;
 use Illuminate\Support\Facades\Storage;
@@ -74,6 +75,7 @@ Route::middleware('auth')->group(function(){
     });
 
     Route::post('/Logout', [LoginPage::class, 'Logout'])->name('logout');
+    Route::get('/MyProfile', [ProfileController::class, 'view'])->name('view-profile');
 });
 
 // get url image without storage:link
