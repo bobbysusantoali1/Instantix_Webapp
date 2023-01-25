@@ -40,12 +40,12 @@
                     <input type="number" class="form-control" name="phone_number" id="phone_number" value="{{ old('phone_number', $user->phone_number) }}">
                 </div>
             </div>
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-6 p-3">
-                    <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
+                    <label for="password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" name="password" id="password">
                 </div>
-            </div> --}}
+            </div>
             @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     {{$errors->first()}}

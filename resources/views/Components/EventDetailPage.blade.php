@@ -3,8 +3,6 @@
 @section('content')
     <div class="container">
         <div class="card mb-3">
-            {{-- <img class="card-img-top" src="{{asset('storage/images/'.$data_event->event_image)}}" alt="Card image cap"> --}}
-            {{-- <img class="card-img-top" src="{{ URL::asset('images/'.$data_event->event_image) }}" alt="Card image cap"> --}}
             <img class="card-img-top" src="{{ url('storage/app/public/'.$data_event->event_image) }}" alt="{{ $data_event->event_image }}">
             <form action={{ route('view-book-detail', ['id' => $data_event->id]) }} method="post">
                 @csrf
@@ -31,10 +29,10 @@
                             <div class="selecttype">
                                 <div class="radio">
                                     <input type="radio" value="Regular" class="btn-check" name="category" id="Regular" autocomplete="off" checked>
-                                    <label style="width: 150px; margin-right: 5px;margin-left: 7px;" class="btn btn-outline-success" for="success-outlined">Regular</label>
+                                    <label style="width: 150px; margin-right: 5px;margin-left: 7px;" class="btn btn-outline-success" for="Regular">Regular</label>
 
                                     <input type="radio" value="VIP" class="btn-check" name="category" id="VIP" autocomplete="off">
-                                    <label style="width: 150px" class="btn btn-outline-danger" for="danger-outlined">VIP</label>
+                                    <label style="width: 150px" class="btn btn-outline-danger" for="VIP">VIP</label>
                                 </div>
                                 <div class="price d-flex">
                                     @foreach ($ticket as $item)
@@ -92,7 +90,9 @@
                     @else
                     <div class="right" style="width: calc(100% / 3) !important">
                         <div class="buttons d-flex mt-4" style="justify-content: center">
-                            <a href="{{ route('view-manage-event', ['id' => $data_event->id]) }}" class="btn btn-danger fs-3">Manage Event</a>
+                            @if (auth()->user()->id == $data_event->user->id)
+                                <a href="{{ route('view-manage-event', ['id' => $data_event->id]) }}" class="btn btn-danger fs-3">Manage Event</a>
+                            @endif
                         </div>
                     </div>
                     @endif
