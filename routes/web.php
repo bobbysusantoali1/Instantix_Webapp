@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/AddNewEvent', [AddNewEventPage::class, 'view'])->name('view-add-event');
         Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert'])->name('insert-event');
         Route::get('/ManageEvent/{id}', [ManageEventPage::class, 'view'])->name('view-manage-event');
-        Route::post('/ManageEvent/{id}', [ManageEventPage::class, 'update'])->name('update-event');
+        Route::patch('/ManageEvent/{id}', [ManageEventPage::class, 'update'])->name('update-event');
         Route::delete('/EventDetail/{id}', [EventDetailPage::class, 'delete'])->name('delete-event');
 
     });

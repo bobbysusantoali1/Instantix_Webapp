@@ -27,7 +27,7 @@ class ManageEventPage extends Controller
 
         Storage::putFileAs('public/images',$image, str_replace(' ', '', $request->event_name).'.'.$Ext_Image);
         $Image_Url = 'images/'.str_replace(' ', '', $request->event_name).'.'.$Ext_Image;
-
+        // update event table
         DB::table('events')
         ->join('tickets', 'events.id', '=', 'tickets.event_id')
         ->where('events.id', '=', $event_id)
@@ -40,6 +40,26 @@ class ManageEventPage extends Controller
             'event_date' => $request->event_date,
             'event_start_time' => $request->event_start_time,
             'event_end_time' => $request->event_end_time,
+        ]);
+        // update ticket Regular
+        DB::table('events')
+        ->join('tickets', 'events.id', '=', 'tickets.event_id')
+        ->where('events.id', '=', $event_id)
+        ->where('tickets.category_name', '=', 'Regular')
+        ->update([
+            'category_init_stock' =>$request->EventRegularTicket,
+            'price' => $request->EventRegularPrice,
+
+        ]);
+        // update ticket VIP
+        DB::table('events')
+        ->join('tickets', 'events.id', '=', 'tickets.event_id')
+        ->where('events.id', '=', $event_id)
+        ->where('tickets.category_name', '=', 'VIP')
+        ->update([
+            'category_init_stock' =>$request->EventVIPTicket,
+            'price' => $request->EventVIPPrice,
+
         ]);
         return redirect('/HomePage')->with('status', 'Manage Event Success');
     }

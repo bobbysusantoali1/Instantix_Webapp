@@ -3,6 +3,7 @@
 @section('content')
 <div class="d-flex flex-column align-items-center bg bg-lightblue mt-4 border rounded border-3 border-dark" style="margin-left: 20%; margin-right:20%">
     <form method="POST" enctype="multipart/form-data" action={{ route('update-event', ['id' => $data_event->id]) }}>
+        @method('patch')
         @csrf
         @if ($errors->any())
             {{$errors}}
