@@ -8,9 +8,7 @@ use App\Models\event;
 class HomePage extends Controller
 {
     public function view(Request $request){
-        $events = event::all();
-        $events = event::latest()->Searching(request(['search']), request(['selected']))
-                 ->get();
+        $events = event::latest()->Searching(request(['search']), request(['selected']))->paginate(4);
         return view('Components.Home',[
             'title' => 'Home Page InstanTix',
             'events' => $events,

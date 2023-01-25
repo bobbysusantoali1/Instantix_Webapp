@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 <section class="item p-3 d-flex" style="margin-bottom: 100px; flex-wrap: wrap">
+=======
+<section class="item px-5 pt-5 mb-1 d-flex" style="margin-bottom: 100px">
+>>>>>>> Stashed changes
     @foreach ($events as $event)
     <div class="card m-2" style="width: 18rem;">
         <img class="card-img-top" src="{{ url('storage/app/public/'.$event->event_image) }}" alt="{{ $event->event_image }}">
@@ -13,3 +17,8 @@
     </div>
     @endforeach
 </section>
+<div class="pagination-container d-flex justify-content-center m-0 p-0">
+    <div class="d-flex">
+        {{$events->links()}}
+    </div>
+</div>
