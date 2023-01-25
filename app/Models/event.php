@@ -39,6 +39,13 @@ class event extends Model
         return $this->hasMany(ticket::class);
     }
 
+    public function scopeSearching($query, array $search){
+        // when collection and null coalescing operator
+        $query->when($search['search'] ?? false, function($query, $search){
+            return $query->where('event_name', 'like', '%' . $search . '%');
+        });
+    }
+
     protected $fillable = [
         'user_id',
         'event_name',

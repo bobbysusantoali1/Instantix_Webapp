@@ -26,18 +26,23 @@
     </div>
     <section class="search-sec">
         <div class="container">
-            <form action="#" method="post">
+            <form action="/HomePage">
+                @method('get')
                 @csrf
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0" style="width: 50%;">
-                                <input type="text"  class="form-control search-slt" placeholder="Search Event ...">
+                                <input type="search" name="search"  class="form-control search-slt" placeholder="Search Event ..." value="{{ request('search') }}">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                <select class="form-control search-slt" id="exampleFormControlSelect1" name="selected">
+                                    <option value="" selected>Location</option>
                                     @foreach ($datas as $item)
-                                        <option value="{{ $item['event_location'] }}">{{ $item['event_location'] }}</option>
+                                        <option @if ($item['event_location'] == request()->selected)
+                                            selected
+                                         @endif
+                                         value="{{ $item['event_location'] }}">{{ $item['event_location'] }}</option>
                                     @endforeach
                                 </select>
                             </div>
