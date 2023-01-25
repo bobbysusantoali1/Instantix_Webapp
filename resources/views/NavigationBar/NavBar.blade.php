@@ -12,7 +12,7 @@
                 <ul class="navbar-nav align-items-center text-dark fw-bold fs-5">
                     @if (Auth::user()->role == 'eventOrganizer')
                         <li class="nav-item">
-                            <a class="nav-link {{ (\Request::route()->getName() == 'view-dashboard') ? 'active' : '' }}" href="{{Route('view-dashboard')}}">Dashboard</a>
+                            <a class="nav-link {{ (\Request::route()->getName() == 'view-my-events') ? 'active' : '' }}" href="{{Route('view-dashboard')}}">Dashboard</a>
                         </li>
                     @endif
                     <li class="nav-item">
