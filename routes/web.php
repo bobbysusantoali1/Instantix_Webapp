@@ -32,6 +32,10 @@ use App\Http\Controllers\EODashboardController;
 */
 
 // universal
+Route::get('/', function () {
+    return redirect()->route('view-home');
+});
+Route::get('/HomePage', [HomePage::class, 'view'])->middleware('loc')->name('view-home');
 Route::get('/Browse', [BrowsePage::class, 'view'])->middleware('loc')->name('view-browse');
 Route::get('/EventDetail/{id}', [EventDetailPage::class, 'view'])->name('view-event');
 Route::get('/AboutUs', [AboutUsPage::class, 'view'])->name('view-about-us');
@@ -40,10 +44,6 @@ Route::post('/contact-form', [ContactPage::class, 'ContactUsForm'])->name('conta
 
 // for guest
 Route::middleware('guest')->group(function(){
-    Route::get('/', function () {
-        return redirect('/HomePage');
-    });
-    Route::get('/HomePage', [HomePage::class, 'view'])->middleware('loc')->name('view-home');
     Route::get('/Login', [LoginPage::class, 'view'])->name('login');
     Route::post('/Login', [LoginPage::class, 'authenticate'])->name('authenticate-login');
     Route::get('/Register', [RegisterPage::class, 'view'])->name('register');
@@ -54,10 +54,6 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     // for customer
     Route::middleware('customer')->group(function(){
-        Route::get('/', function () {
-            return redirect('/HomePage');
-        });
-        Route::get('/HomePage', [HomePage::class, 'view'])->middleware('loc')->name('view-home');
         Route::post('/EventDetail/{id}', [EventBookingPage::class, 'view_book'])->name('view-book-detail');
         Route::post('/EventBooking', [EventBookingPage::class, 'purchase'])->name('purchase-ticket');
         Route::get('/MyBooking', [MyBookingPage::class, 'view'])->name('view-book');
@@ -67,9 +63,6 @@ Route::middleware('auth')->group(function(){
 
     // for EO
     Route::middleware('eventOrganizer')->group(function(){
-        Route::get('/', function () {
-            return redirect()->route('view-dashboard');
-        });
         Route::prefix('dashboard')->group(function(){
             Route::get('myEvents/{event}', [EODashboardController::class, 'eventDetail']);
             Route::get('myEvents', [EODashboardController::class, 'myEvents'])->name('view-my-events');
