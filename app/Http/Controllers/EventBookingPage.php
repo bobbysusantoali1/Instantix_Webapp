@@ -19,12 +19,17 @@ class EventBookingPage extends Controller
     public function view_book(Request $request, $id){
         $event = event::find($id);
         $ticket = event::where('id', $id)->first()->ticket->where('category_name', $request->category)->first();
-        return view('Components.EventBookingPage', [
-            'title' => 'Event Booking',
-            'data_event' => $event,
-            'ticket' => $ticket,
-            'qty' => $request->qty
-        ]);
+        if ($ticket->category_curr_stock == 0 || ($request->qty > $ticket->category_curr_stock)) {
+            return redirect()->route('view-event', ['id' => $id])->with('alert', 'Not enough stock!');
+        } else {
+            return view('Components.EventBookingPage', [
+                'title' => 'Event Booking',
+                'data_event' => $event,
+                'ticket' => $ticket,
+                'qty' => $request->qty
+            ]);
+        }
+
     }
 
     public function purchase(Request $request){
