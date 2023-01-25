@@ -21,7 +21,7 @@ class ManageEventPage extends Controller
         ]);
     }
     public function update(Request $request, $event_id){
-
+        // baru bisa update data di event, enggak paham cara update tiket kategori reg dan vip
         $validate = $request->validate([
             'event_name' => ['required','min:5','max:30'],
             'event_desc' => ['required', 'min:5'],
@@ -44,7 +44,7 @@ class ManageEventPage extends Controller
         ]);
 
         $image = $request->file('event_image');
-        $Ext_Image = $image->getClientExtension();
+        $Ext_Image = $image->ClientExtension();
 
         Storage::putFileAs('public/images',$image, str_replace(' ', '', $request->event_name).'.'.$Ext_Image);
         $Image_Url = 'images/'.str_replace(' ', '', $request->event_name).'.'.$Ext_Image;
@@ -80,6 +80,7 @@ class ManageEventPage extends Controller
         ->update([
             'category_init_stock' =>$request->EventVIPTicket,
             'price' => $request->EventVIPPrice,
+
         ]);
         return redirect()->route('view-dashboard')->with('alert', 'Manage Event Success');
     }
