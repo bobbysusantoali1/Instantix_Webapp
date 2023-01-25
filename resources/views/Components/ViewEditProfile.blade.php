@@ -52,6 +52,7 @@
                 </div>
             @endif
         </div>
+        <a id="back_btn" class="btn btn-danger w-100 mt-3 text-white" onclick="location.href='{{ url()->previous() }}'">Back</a>
         <div class="d-flex justify-content-end mt-2">
             <button type="submit" class="btn btn-success">Update Profile</button>
         </div>
