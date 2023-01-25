@@ -22,13 +22,13 @@ class EditProfileController extends Controller
             'phone_number' => ['required','digits_between:10,13'],
             'address' => ['required','min:3'],
             'dob' => ['required'],
-            'gender' => ['required']
-            // 'confirmPassword' => ['required', 'min:5','max:20']
+            'gender' => ['required'],
+            'confirmPassword' => ['required', 'min:5','max:20']
         ];
 
-        // if (!Hash::check('confirmPassword', $curr_user->password)) {
-        //     return redirect()->route('view-edit-profile')->with('alert', "Password is not correct!");
-        // }
+        if (!Hash::check('confirmPassword', $curr_user->password)) {
+            return redirect()->route('view-edit-profile')->with('alert', "Password is not correct!");
+        }
 
         if ($request->full_name != $curr_user->full_name){
             $rules['full_name'] = ['required','min:5','max:20','unique:users'];
