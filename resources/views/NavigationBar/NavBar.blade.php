@@ -11,19 +11,19 @@
             <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav align-items-center text-dark fw-bold fs-5">
                     <li class="nav-item">
-                        <a class="nav-link @yield('active_browse')" href="{{Route('view-browse')}}">Browse</a>
+                        <a class="nav-link {{ (\Request::route()->getName() == 'view-browse') ? 'active' : '' }}" href="{{Route('view-browse')}}">Browse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('active_about')" href="{{Route('view-about-us')}}">About Us</a>
+                        <a class="nav-link {{ (\Request::route()->getName() == 'view-about-us') ? 'active' : '' }}" href="{{Route('view-about-us')}}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('active_contact')" href="{{Route('contact-form')}}">Contact</a>
+                        <a class="nav-link {{ (\Request::route()->getName() == 'contact-form') ? 'active' : '' }}" href="{{Route('contact-form')}}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('active_ticket')" href="{{Route('view-book')}}">View Tickets</a>
+                        <a class="nav-link {{ (\Request::route()->getName() == 'view-book') ? 'active' : '' }}" href="{{Route('view-book')}}">View Tickets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('active_profile')" href="{{Route('view-profile')}}">Profile</a>
+                        <a class="nav-link {{ (\Request::route()->getName() == 'view-profile') ? 'active' : '' }}" href="{{Route('view-profile')}}">Profile</a>
                     </li>
                     @if (Auth::check())
                         <form action="/Logout" method="POST">
