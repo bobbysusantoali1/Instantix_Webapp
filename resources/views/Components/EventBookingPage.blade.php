@@ -3,7 +3,8 @@
 @section('content')
     <div class="container justify-content-center">
         <div class="card mb-3">
-            <img class="card-img-top" src="{{ URL::asset('images/'.$data_event->event_image) }}" alt="Card image cap">
+            <img class="card-img-top" src="{{asset('storage/images/'.$data_event->event_image)}}" alt="Card image cap">
+            {{-- <img class="card-img-top" src="{{ URL::asset('images/'.$data_event->event_image) }}" alt="Card image cap"> --}}
             <div class="card-body d-flex">
                 <div class="left" style="width: calc(100% / 3) !important">
                     <h5 class="card-title">{{ $data_event->event_name }}</h5>

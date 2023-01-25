@@ -71,7 +71,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert'])->name('insert-event');
         Route::get('/ManageEvent/{id}', [ManageEventPage::class, 'view'])->name('view-manage-event');
         Route::post('/ManageEvent/{id}', [ManageEventPage::class, 'update'])->name('update-event');
-        // Route::get('/ManageEvent', [ManageEventPage::class, 'view'])->name('view-manage-event');
+        
     });
 
     Route::post('/Logout', [LoginPage::class, 'Logout'])->name('logout');

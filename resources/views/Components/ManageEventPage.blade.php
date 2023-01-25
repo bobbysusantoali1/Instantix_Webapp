@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('content')
 <div class="d-flex flex-column align-items-center bg bg-lightblue mt-4 border rounded border-3 border-dark" style="margin-left: 20%; margin-right:20%">
-    <form method="POST" action={{ route('update-event', ['id' => $data_event->id]) }}>
+    <form method="POST" enctype="multipart/form-data" action={{ route('update-event', ['id' => $data_event->id]) }}>
         @csrf
         @if ($errors->any())
             {{$errors}}
@@ -16,7 +16,7 @@
             <div class="row mb-3">
                 <label for="event_image" class="col-sm-4">Poster</label>
                 <div class="col-sm-8">
-                    <input type="file" class="form-control" name="event_image" id="event_image">
+                    <input type="file" class="form-control" name="event_image" id="event_image" value="{{ $data_event->event_image }}" >
                 </div>
             </div>
             <div class="row mb-3">
