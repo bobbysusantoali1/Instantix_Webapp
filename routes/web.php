@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EditPasswordController;
+use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\HomePage;
 use App\Http\Controllers\LoginPage;
 use App\Http\Controllers\BrowsePage;
