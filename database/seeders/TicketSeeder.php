@@ -16,7 +16,7 @@ class TicketSeeder extends Seeder
     {
         DB::table('tickets')->insert([
             [
-                "id" => "ticket1",
+                "id" => "ticket_id_1",
                 "event_id" => "event1",
                 "category_name" => "Regular",
                 "category_desc" => "This ticket grants you access to the event",
@@ -25,7 +25,7 @@ class TicketSeeder extends Seeder
                 "price" => 150000
             ],
             [
-                "id" => "ticket2",
+                "id" => "ticket_id_2",
                 "event_id" => "event1",
                 "category_name" => "VIP",
                 "category_desc" => "This ticket grants you access to the event & backstage",
@@ -34,7 +34,7 @@ class TicketSeeder extends Seeder
                 "price" => 350000
             ],
             [
-                "id" => "ticket3",
+                "id" => "ticket_id_3",
                 "event_id" => "event2",
                 "category_name" => "Regular",
                 "category_desc" => "This ticket grants you access to the concert",
@@ -43,7 +43,7 @@ class TicketSeeder extends Seeder
                 "price" => 250000
             ],
             [
-                "id" => "ticket4",
+                "id" => "ticket_id_4",
                 "event_id" => "event2",
                 "category_name" => "VIP",
                 "category_desc" => "This ticket grants you full-day access to the concert & backstage",
