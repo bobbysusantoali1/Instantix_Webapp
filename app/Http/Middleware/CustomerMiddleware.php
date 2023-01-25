@@ -18,7 +18,7 @@ class CustomerMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(!Auth::check() || Auth::user()->role != 'customer'){
-            return redirect('/HomePage');
+            return redirect()->route('view-dashboard');
         }
         return $next($request);
     }
