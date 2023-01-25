@@ -21,9 +21,9 @@
         </div>
         <div class="container my-3">
             @if (!$user->role == 'eventOrganizer')
-                {{-- <a href="{{ route('view-edit-profile') }}" class="btn btn-primary px-4">Edit Profile</a> --}}
+                <a href="{{ route('view-edit-profile') }}" class="btn btn-primary px-4">Edit Profile</a>
             @endif
-            {{-- <a href="{{ route('view-edit-password') }}" class="btn btn-outline-primary px-4">Edit Password</a> --}}
+            <a href="{{ route('view-edit-password') }}" class="btn btn-outline-primary px-4">Edit Password</a>
         </div>
     </div>
 </div>
