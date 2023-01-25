@@ -22,6 +22,27 @@ class ManageEventPage extends Controller
     }
     public function update(Request $request, $event_id){
         // baru bisa update data di event, enggak paham cara update tiket kategori reg dan vip
+        $validate = $request->validate([
+            'event_name' => ['required','min:5','max:30'],
+            'event_desc' => ['required', 'min:5'],
+            'event_image' => ['required','image'],
+            'event_artist' => ['required'],
+            'event_location' => ['required','min:5'],
+            'event_date' => ['required'],
+            'event_start_time' => ['required'],
+            'event_end_time' => ['required']
+        ]);
+
+        $validateticketregular = $request->validate([
+            'EventRegularTicket' => ['required','numeric','min:10'],
+            'EventRegularPrice' => ['required','numeric','min:10000']
+        ]);
+
+        $validateticketvip = $request->validate([
+            'EventVIPTicket' => ['required','numeric','min:10'],
+            'EventVIPPrice' => ['required','numeric','min:20000']
+        ]);
+        
         $image = $request->file('event_image');
         $Ext_Image = $image->clientExtension();
 
