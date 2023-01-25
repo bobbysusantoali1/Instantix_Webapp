@@ -90,7 +90,7 @@
                     @else
                     <div class="right" style="width: calc(100% / 3) !important">
                         <div class="buttons d-flex mt-4" style="justify-content: center">
-                            <a href="/ManageEvent" class="btn btn-danger fs-3">Manage Event</a>
+                            <a href="{{ route('view-manage-event', ['id' => $data_event->id]) }}" class="btn btn-danger fs-3">Manage Event</a>
                         </div>
                     </div>
                     @endif
