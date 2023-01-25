@@ -8,10 +8,10 @@
         </div>
     @else
         @if (!Auth::check() || auth()->user()->role != 'eventOrganizer')
-        <div class="card mb-3 p-3" style="max-width: 1200px; height: 600px">
-            <div class="row g-0" style="height: 100%; width: 100%">
-                <div class="col-md-8" style="max-width: 420px; margin-top: 50px;">
-                    <div class="card-body">
+        <div class="card mb-3 p-3">
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body d-flex flex-column justify-content-between py-5 my-5">
                         <h1 class="card-title"> Featured Event </h1>
                         <h3 class="card-text">{{ $first_event->event_name }}</h3>
                         <p class="card-text">{{ $first_event->event_desc }}</p>
