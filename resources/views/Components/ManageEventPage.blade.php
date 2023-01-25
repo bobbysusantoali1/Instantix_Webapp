@@ -1,61 +1,70 @@
 @extends('MainBody')
 @section('title', $title)
 @section('content')
-<div class="d-flex flex-column align-items-center bg bg-lightblue mt-4 border rounded border-3 border-dark" style="margin-left: 20%; margin-right:20%">
-    <form method="POST" enctype="multipart/form-data" action={{ route('update-event', ['id' => $data_event->id]) }}>
-        @method('patch')
-        @csrf
-        @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{$errors->first()}}
-            </div>
-        @endif
+    <div class="d-flex flex-column align-items-center bg bg-lightblue mt-4 border rounded border-3 border-dark"
+        style="margin-left: 20%; margin-right:20%">
+        <form method="POST" enctype="multipart/form-data" action={{ route('update-event', ['id' => $data_event->id]) }}>
+            @method('patch')
+            @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ $errors->first() }}
+                </div>
+            @endif
             <div class="row mt-4 mb-3">
                 <label for="event_name" class="col-sm-4 font-weight-bold">Nama Event</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="event_name" id="event_name" value="{{ $data_event->event_name }}">
+                    <input type="text" class="form-control" name="event_name" id="event_name"
+                        value="{{ $data_event->event_name }}">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="event_image" class="col-sm-4">Poster</label>
                 <div class="col-sm-8">
-                    <input type="file" class="form-control" name="event_image" id="event_image" value="{{ $data_event->event_image }}" >
+                    <input type="file" class="form-control" name="event_image" id="event_image"
+                        value="{{ $data_event->event_image }}">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="event_artist" class="col-sm-4">Artist</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="event_artist" id="event_artist" value="{{ $data_event->event_artist }}">
+                    <input type="text" class="form-control" name="event_artist" id="event_artist"
+                        value="{{ $data_event->event_artist }}">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="event_location" class="col-sm-4">Lokasi</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="event_location" id="event_location" value="{{ $data_event->event_location }}">
+                    <input type="text" class="form-control" name="event_location" id="event_location"
+                        value="{{ $data_event->event_location }}">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="event_desc" class="col-sm-4">Deskripsi Event</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="event_desc" id="event_desc" value="{{ $data_event->event_desc }}">
+                    <input type="text" class="form-control" name="event_desc" id="event_desc"
+                        value="{{ $data_event->event_desc }}">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="event_date" class="col-sm-4">Tanggal</label>
                 <div class="col-sm-8">
-                    <input type="date" class="form-control" name="event_date" id="event_date" value="{{ $data_event->event_date }}">
+                    <input type="date" class="form-control" name="event_date" id="event_date"
+                        value="{{ $data_event->event_date }}">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="EventTime" class="col-sm-4">Jam</label>
                 <div class="col-sm-4">
-                    <input type="time" class="form-control" name="event_start_time" id="event_start_time" value="{{ $data_event->event_start_time }}">
+                    <input type="time" class="form-control" name="event_start_time" id="event_start_time"
+                        value="{{ $data_event->event_start_time }}">
                 </div>
                 <div class="col-sm-4">
-                    <input type="time" class="form-control" name="event_end_time" id="event_end_time" value="{{ $data_event->event_end_time }}">
+                    <input type="time" class="form-control" name="event_end_time" id="event_end_time"
+                        value="{{ $data_event->event_end_time }}">
                 </div>
             </div>
-            <div class="row mb-3">
+            {{-- <div class="row mb-3">
                 <div class="col-sm-4"></div>
                 <label for="EventRegular" class="col-sm-4 d-flex justify-content-center">Regular</label>
                 <label for="EventVIP" class="col-sm-4 d-flex justify-content-center">VIP</label>
@@ -112,16 +121,17 @@
                         </div>
                     @endif
                 @endforeach
-            </div>
+            </div> --}}
 
             <div class="d-flex justify-content-center">
                 <div class="mb-4 col-sm-2">
-                    <a id="back_btn" class="btn btn-danger text-white" onclick="location.href='{{ url()->previous() }}'">Cancel</a>
+                    <a id="back_btn" class="btn btn-danger text-white"
+                        onclick="location.href='{{ url()->previous() }}'">Cancel</a>
                 </div>
                 <div class="mb-4 d-flex">
                     <button type="submit" class="btn btn-success">Update</button>
                 </div>
             </div>
-    </form>
-</div>
+        </form>
+    </div>
 @endsection

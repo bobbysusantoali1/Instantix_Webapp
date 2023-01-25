@@ -33,15 +33,16 @@ class ManageEventPage extends Controller
             'event_end_time' => ['required']
         ]);
 
-        $validateticketregular = $request->validate([
-            'EventRegularTicket' => ['required','numeric','min:10'],
-            'EventRegularPrice' => ['required','numeric','min:10000']
-        ]);
+        // REMOVED TICKET
+        // $validateticketregular = $request->validate([
+        //     'EventRegularTicket' => ['required','numeric','min:10'],
+        //     'EventRegularPrice' => ['required','numeric','min:10000']
+        // ]);
 
-        $validateticketvip = $request->validate([
-            'EventVIPTicket' => ['required','numeric','min:10'],
-            'EventVIPPrice' => ['required','numeric','min:20000']
-        ]);
+        // $validateticketvip = $request->validate([
+        //     'EventVIPTicket' => ['required','numeric','min:10'],
+        //     'EventVIPPrice' => ['required','numeric','min:20000']
+        // ]);
 
         $image = $request->file('event_image');
         $Ext_Image = $image->ClientExtension();
@@ -63,25 +64,25 @@ class ManageEventPage extends Controller
             'event_end_time' => $request->event_end_time,
         ]);
         // update ticket Regular
-        DB::table('events')
-        ->join('tickets', 'events.id', '=', 'tickets.event_id')
-        ->where('events.id', '=', $event_id)
-        ->where('tickets.category_name', '=', 'Regular')
-        ->update([
-            'category_init_stock' =>$request->EventRegularTicket,
-            'price' => $request->EventRegularPrice,
+        // DB::table('events')
+        // ->join('tickets', 'events.id', '=', 'tickets.event_id')
+        // ->where('events.id', '=', $event_id)
+        // ->where('tickets.category_name', '=', 'Regular')
+        // ->update([
+        //     'category_init_stock' =>$request->EventRegularTicket,
+        //     'price' => $request->EventRegularPrice,
 
-        ]);
-        // update ticket VIP
-        DB::table('events')
-        ->join('tickets', 'events.id', '=', 'tickets.event_id')
-        ->where('events.id', '=', $event_id)
-        ->where('tickets.category_name', '=', 'VIP')
-        ->update([
-            'category_init_stock' =>$request->EventVIPTicket,
-            'price' => $request->EventVIPPrice,
+        // ]);
+        // // update ticket VIP
+        // DB::table('events')
+        // ->join('tickets', 'events.id', '=', 'tickets.event_id')
+        // ->where('events.id', '=', $event_id)
+        // ->where('tickets.category_name', '=', 'VIP')
+        // ->update([
+        //     'category_init_stock' =>$request->EventVIPTicket,
+        //     'price' => $request->EventVIPPrice,
 
-        ]);
+        // ]);
         return redirect()->route('view-dashboard')->with('alert', 'Manage Event Success');
     }
 
