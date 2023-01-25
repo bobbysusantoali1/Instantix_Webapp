@@ -45,16 +45,55 @@
                                 </div>
                             </div>
                         </div>
+                        @if (!Auth::check() || auth()->user()->role != 'eventOrganizer')
                         <div class="quantity">
                             <label style="width: 150px; margin-bottom: 3px"  for="qty">Quantity</label>
                             <input type="number" name="qty" id="qty" class="form-control input-number" value="1" min="1" max="30">
                         </div>
+                        @else
+                        <div class="center d-flex justify-content-center">
+                            <p style="" class="card-text">Stock: </p>
+                            <div class="selecttype">
+                                <div class="price d-flex">
+                                    @foreach ($ticket as $item)
+                                        @if ($item->category_name == 'Regular')
+                                            <p style="margin-left: 7px" class="card-text">{{ $item->category_init_stock }}</p>
+                                        @else
+                                            <p style="margin-left: 120px; margin-right: 130px;" class="card-text">{{ $item->category_init_stock }}</p>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center d-flex justify-content-center">
+                            <p style="" class="card-text">Sold: </p>
+                            <div class="selecttype">
+                                <div class="price d-flex">
+                                    @foreach ($ticket as $item)
+                                        @if ($item->category_name == 'Regular')
+                                            <p style="margin-left: 17px; margin-right: 10px;" class="card-text">{{ $item->category_curr_stock }}</p>
+                                        @else
+                                            <p style="margin-left: 120px; margin-right: 130px;" class="card-text">{{ $item->category_curr_stock }}</p>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        @endif
                     </div>
+                    @if (!Auth::check() || auth()->user()->role != 'eventOrganizer')
                     <div class="right" style="width: calc(100% / 3) !important">
                         <div class="buttons d-flex mt-4" style="justify-content: center">
                             <button type="submit" style="width: 150px" class="btn btn-danger">Book Now</button>
                         </div>
                     </div>
+                    @else
+                    <div class="right" style="width: calc(100% / 3) !important">
+                        <div class="buttons d-flex mt-4" style="justify-content: center">
+                            <a href="/ManageEvent" class="btn btn-danger fs-3">Manage Event</a>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </form>
         </div>
