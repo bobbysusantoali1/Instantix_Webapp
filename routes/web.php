@@ -37,8 +37,7 @@ Route::get('/', function () {
 });
 Route::get('/HomePage', [HomePage::class, 'view'])->middleware('loc')->name('view-home');
 Route::get('/Browse', [BrowsePage::class, 'view'])->middleware('loc')->name('view-browse');
-// Route::get('/Contact', [ContactPage::class, 'view']);
-Route::get('/EventDetail/customer/{id}', [EventDetailPage::class, 'view'])->name('view-event');
+Route::get('/EventDetail/{id}', [EventDetailPage::class, 'view'])->name('view-event');
 Route::get('/AboutUs', [AboutUsPage::class, 'view'])->name('view-about-us');
 Route::get('/contact-form', [ContactPage::class, 'view'])->name('contact-form');
 Route::post('/contact-form', [ContactPage::class, 'ContactUsForm'])->name('contact-form.store');
@@ -55,7 +54,7 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     // for customer
     Route::middleware('customer')->group(function(){
-        Route::post('/EventDetail/customer/{id}', [EventBookingPage::class, 'view_book'])->name('view-book-detail');
+        Route::post('/EventDetail/{id}', [EventBookingPage::class, 'view_book'])->name('view-book-detail');
         Route::post('/EventBooking', [EventBookingPage::class, 'purchase'])->name('purchase-ticket');
         Route::get('/MyBooking', [MyBookingPage::class, 'view'])->name('view-book');
         Route::get('/MyProfile/edit-profile', [EditProfileController::class, 'view'])->name('view-edit-profile');
@@ -75,6 +74,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/AddNewEvent', [AddNewEventPage::class, 'insert'])->name('insert-event');
         Route::get('/ManageEvent/{id}', [ManageEventPage::class, 'view'])->name('view-manage-event');
         Route::post('/ManageEvent/{id}', [ManageEventPage::class, 'update'])->name('update-event');
+        Route::delete('/EventDetail/{id}', [EventDetailPage::class, 'delete'])->name('delete-event');
 
     });
 

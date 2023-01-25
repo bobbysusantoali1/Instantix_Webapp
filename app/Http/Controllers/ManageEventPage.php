@@ -43,6 +43,5 @@ class ManageEventPage extends Controller
         ]);
         return redirect('/HomePage')->with('status', 'Manage Event Success');
     }
-    
 
 }

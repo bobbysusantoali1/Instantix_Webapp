@@ -17,4 +17,19 @@ class EventDetailPage extends Controller
             'ticket' => $tickets
         ]);
     }
+    public function delete($id){
+        $tickets = ticket::where('event_id', $id);
+        foreach ($tickets as $ticket) {
+            if ($ticket->category_init_stock != $ticket->category_curr_stock){
+                {{ $ticket->id }}
+                return redirect()->route('view-event')->with('alert', 'Cannot delete event because at least 1 ticket has been sold!');
+            }
+        }
+        // kalau udah divalidasi boleh didelete
+        foreach ($tickets as $ticket) {
+            ticket::destroy($ticket->id);
+        }
+        event::destroy($id);
+        return redirect()->route('view-home')->with('alert', 'Success remove event');
+    }
 }

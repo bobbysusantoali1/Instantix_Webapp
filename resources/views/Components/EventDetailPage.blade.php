@@ -92,6 +92,11 @@
                         <div class="buttons d-flex mt-4" style="justify-content: center">
                             @if (auth()->user()->id == $data_event->user->id)
                                 <a href="{{ route('view-manage-event', ['id' => $data_event->id]) }}" class="btn btn-danger fs-3">Manage Event</a>
+                                <form action="{{ route('delete-event', ['id' => $data_event->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger px-3 mx-2">Delete Event</button>
+                                </form>
                             @endif
                         </div>
                     </div>
