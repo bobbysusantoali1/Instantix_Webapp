@@ -22,7 +22,7 @@
     <div style="font-size: 20pt">
         <div>Alamat : Jalan Harjamukti Kidul III No. 19A Jakarta Utara</div>
         <div>Telp : 021-3824910239123911</div>
-        <div>Email : instantix.instantix@instantix.com</div>
+        <div>Email : instantixinstantix@gmail.com</div>
 
         <a href="https://goo.gl/maps/p4sgmQgtbyuvSCcF7">
             <button type="button" class="btn btn-info" style="font-size: 20pt">
