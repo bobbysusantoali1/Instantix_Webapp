@@ -1,6 +1,5 @@
 @extends('MainBody')
 @section('title', $title)
-@section('active_contact', ($active == 'Contact') ? 'active' : '')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
