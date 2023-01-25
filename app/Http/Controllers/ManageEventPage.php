@@ -26,7 +26,7 @@ class ManageEventPage extends Controller
         $Ext_Image = $image->clientExtension();
 
         Storage::putFileAs('public/images',$image, str_replace(' ', '', $request->event_name).'.'.$Ext_Image);
-        $Image_Url = str_replace(' ', '', $request->event_name).'.'.$Ext_Image;
+        $Image_Url = 'images/'.str_replace(' ', '', $request->event_name).'.'.$Ext_Image;
 
         DB::table('events')
         ->join('tickets', 'events.id', '=', 'tickets.event_id')
@@ -43,6 +43,6 @@ class ManageEventPage extends Controller
         ]);
         return redirect('/HomePage')->with('status', 'Manage Event Success');
     }
-
+    
 
 }
