@@ -42,9 +42,9 @@ class ManageEventPage extends Controller
             'EventVIPTicket' => ['required','numeric','min:10'],
             'EventVIPPrice' => ['required','numeric','min:20000']
         ]);
-        
+
         $image = $request->file('event_image');
-        $Ext_Image = $image->clientExtension();
+        $Ext_Image = $image->getClientExtension();
 
         Storage::putFileAs('public/images',$image, str_replace(' ', '', $request->event_name).'.'.$Ext_Image);
         $Image_Url = 'images/'.str_replace(' ', '', $request->event_name).'.'.$Ext_Image;
@@ -82,7 +82,7 @@ class ManageEventPage extends Controller
             'price' => $request->EventVIPPrice,
 
         ]);
-        return redirect('/HomePage')->with('status', 'Manage Event Success');
+        return redirect()->route('view-dashboard')->with('alert', 'Manage Event Success');
     }
 
 }

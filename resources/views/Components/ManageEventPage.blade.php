@@ -114,7 +114,7 @@
 
             <div class="d-flex justify-content-center">
                 <div class="mb-4 col-sm-2">
-                    <button type="submit" class="btn btn-danger">Cancel</button>
+                    <a id="back_btn" class="btn btn-danger text-white" onclick="location.href='{{ url()->previous() }}'">Cancel</a>
                 </div>
                 <div class="mb-4 d-flex">
                     <button type="submit" class="btn bg-blue">Update</button>
