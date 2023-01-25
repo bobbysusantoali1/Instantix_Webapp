@@ -4,7 +4,8 @@
 <div class="row p-5 d-flex justify-content-center">
     @for ($i = 0; $i < $bookings->count(); $i++)
         <div class="card m-2 col-md-3">
-            <img class="card-img-top" src="{{asset('storage/images/'.$events[$i]->event_image)}}" alt="{{ $events[$i]->event_image }}">
+            <img class="card-img-top" src="{{ url('storage/app/public/'.$events[$i]->event_image) }}" alt="{{ $events[$i]->event_image }}">
+            {{-- <img class="card-img-top" src="{{asset('storage/images/'.$events[$i]->event_image)}}" alt="{{ $events[$i]->event_image }}"> --}}
             {{-- <img class="card-img-top" src="{{ URL::asset('images/'.$events[$i]->event_image) }}" alt="{{ $events[$i]->event_image }}"> --}}
             <div class="card-body">
                 <h5 class="card-title">{{ $events[$i]->event_name }}</h5>
